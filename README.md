@@ -1,17 +1,22 @@
+
+新版本已出，强烈推荐：https://gitee.com/jeecg/jeewx-boot
+
+(本Git老版本不再维护升级！！！)
+
+=========================================================================
+
+
+
 JeeWx 微信管家平台，简称“捷微”.
 ===============
-  （一款免费开源的JAVA多触点管理平台）
-===============
-当前最新版本： 3.1.0（发布日期：20180319）
-官网：[www.jeewx.com](http://www.jeewx.com) 
 
-![github](http://img.blog.csdn.net/20161123110044167?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
-<br>
+当前最新版本： 3.3（发布日期：20190604）
+
 
 一、平台简介
 -----------------------------------
-Jeewx是一款开源、免费的微信管家系统（多触点管理平台），2014年荣获CSDN开发商大会第一名。采用JAVA语言，支持微信公众号、微信企业号、支付宝服务窗、小程序等多触点管理。Jeewx实现了微信公众号、支付窗、微信企业号、小程序等触点的基础管理功能，集成了Oauth2.0、扩展业务、工具箱、报表等实用模块，强大的代码生成器，便于用户二次开发。
-![github](http://img.blog.csdn.net/20161123104736053?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
+Jeewx是一款开源、免费的微信管家系统，2014年荣获CSDN开发商大会第一名。采用JAVA语言，支持微信公众号、微信企业号、支付宝服务窗、小程序等多触点管理。Jeewx实现了微信公众号、支付窗、微信企业号、小程序等触点的基础管理功能，集成了Oauth2.0、扩展业务、工具箱、报表等实用模块，强大的代码生成器，便于用户二次开发。
+![jeewx](https://static.oschina.net/uploads/img/201807/26193036_XzZ1.png "jeewx")
 
 二、平台特性
 -----------------------------------
@@ -86,38 +91,38 @@ Jeewx是一款开源、免费的微信管家系统（多触点管理平台），
 
 四、开发环境
 -----------------------------------
-  * eclipse + jdk7 + tomcat6 + maven + mysql （注意：暂时不支持jdk8）
-  * [依赖下载慢，享受一下mvn飞的感觉](http://www.jeecg.org/forum.php?mod=viewthread&tid=3949)
-  * [JEEWX3.0版本视频教程-New](http://pan.baidu.com/s/1i4PHOXn)
-  * [JEECG Maven本地仓库下载](http://git.oschina.net/jeecg/jeecg-local-maven)
+  * eclipse + jdk7 + tomcat7 + maven + mysql 
+  * [JEEWX_开发工具](http://blog.csdn.net/zhangdaiscott/article/details/78072438)
+  * [JEEWX 开发环境搭建入门](http://blog.csdn.net/zhangdaiscott/article/details/50915206)
+  * [JEEWX 常见问题贴](http://www.jeecg.org/forum.php?mod=viewthread&tid=7811&page=1&extra=#pid21231)
+  * [JEEWX Maven本地仓库下载](http://git.oschina.net/jeecg/jeecg-local-maven)
+  * [微信公众账号第三方平台全网发布源码（java）](http://blog.csdn.net/zhangdaiscott/article/details/48269837)
+  * [JEEWX 非maven版源码下载](https://github.com/zhangdaiscott/jeewx-nomaven)
+ * JEEWX 视频教程
+     链接: https://pan.baidu.com/s/1S2SUgGv6p3xoFeElNye1eQ 提取码: nxe8
 
 五、技术交流
 -----------------------------------
 * 	官 网:  www.jeewx.com
-* 	邮 箱： jeecg@sina.com
-* 	QQ交流群:  289709451
+* 	邮 箱： jeecgos@163.com
+* 	QQ交流群:  ①287090836、④289709451（满）、②129190229（满）、③175449166(满)
 
 
 六、在线体验
 -----------------------------------
 *   在线演示: [http://www.jeewx.com/jeewx](http://www.jeewx.com/jeewx)
-*   体验账号：ceshi/123456 (可注册)
-*   官方公众号："JEEWX捷微"  "H5活动之家"
-	
-![github](http://img.blog.csdn.net/20180309122145466 "jeewx")
-![github](http://img.blog.csdn.net/20160323154916164?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
+*   官方公众号："JEECG"
+
+![jeewx](https://static.oschina.net/uploads/img/201906/04153906_kuT9.jpg "jeewx")
 
 
 七、系统截图 
 -----------------------------------
-![github](http://img.blog.csdn.net/20161220223948861?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdkYWlzY290dA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
-![github](http://img.blog.csdn.net/20161220224001733?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdkYWlzY290dA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
-![github](http://img.blog.csdn.net/20161220224008937?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdkYWlzY290dA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
-![github](http://img.blog.csdn.net/20160822173828381?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
-![github](http://img.blog.csdn.net/20160908175834009?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
-![github](http://img.blog.csdn.net/20160822173833177?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
-![github](http://img.blog.csdn.net/20160323152508827?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
-![github](http://img.blog.csdn.net/20160323153059001?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
-![github](http://img.blog.csdn.net/20160323153104923?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
-![github](http://img.blog.csdn.net/20160323153117501?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
-![github](http://img.blog.csdn.net/20160323153122251?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center "jeewx")
+![jeewx](https://static.oschina.net/uploads/img/201807/26192218_JhGj.png "jeewx")
+![jeewx](https://static.oschina.net/uploads/img/201807/26192231_JVRQ.png "jeewx")
+![jeewx](https://camo.githubusercontent.com/eaeb5055fa7703fb2fd272e03d7bd74cab9bbffb/687474703a2f2f696d672e626c6f672e6373646e2e6e65742f32303136303832323137333832383338313f77617465726d61726b2f322f746578742f6148523063446f764c324a736232637559334e6b626935755a5851762f666f6e742f3561364c354c32542f666f6e7473697a652f3430302f66696c6c2f49304a42516b46434d413d3d2f646973736f6c76652f37302f677261766974792f43656e746572 "jeewx")
+![jeewx](https://camo.githubusercontent.com/e08dc94ca72e7ae671cee5dd732b5737c4a79f70/687474703a2f2f696d672e626c6f672e6373646e2e6e65742f32303136303332333135323530383832373f77617465726d61726b2f322f746578742f6148523063446f764c324a736232637559334e6b626935755a5851762f666f6e742f3561364c354c32542f666f6e7473697a652f3430302f66696c6c2f49304a42516b46434d413d3d2f646973736f6c76652f37302f677261766974792f43656e746572 "jeewx")
+![jeewx](https://static.oschina.net/uploads/img/201807/26192243_Z6kP.png "jeewx")
+![jeewx](https://static.oschina.net/uploads/img/201807/26192252_wNNj.png "jeewx")
+![jeewx](https://static.oschina.net/uploads/img/201807/26192259_xGJx.png "jeewx")
+

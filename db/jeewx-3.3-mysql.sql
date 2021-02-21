@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : mysql-local
-Source Server Version : 50505
+Source Server Version : 50037
 Source Host           : localhost:3306
-Source Database       : jeewx-os-new
+Source Database       : jeewx-os
 
 Target Server Type    : MYSQL
-Target Server Version : 50505
+Target Server Version : 50037
 File Encoding         : 65001
 
-Date: 2018-03-14 20:23:30
+Date: 2018-07-11 18:25:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -21,20 +21,20 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `alipay_account`;
 CREATE TABLE `alipay_account` (
   `id` varchar(50) NOT NULL,
-  `accont_name` varchar(100) DEFAULT NULL COMMENT '名称',
-  `appid` varchar(255) DEFAULT NULL COMMENT '企业号标识CorpID',
-  `rsa_private_key` varchar(2000) DEFAULT NULL COMMENT '管理组凭证密钥Secret',
-  `alipay_public_key` varchar(2000) DEFAULT NULL COMMENT 'AccessToken',
-  `account_desc` varchar(300) DEFAULT NULL COMMENT '描述',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  `conversation_secret` varchar(255) DEFAULT NULL,
-  `PUBLIC_KEY` varchar(2000) DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  `accont_name` varchar(100) default NULL COMMENT '名称',
+  `appid` varchar(255) default NULL COMMENT '企业号标识CorpID',
+  `rsa_private_key` varchar(2000) default NULL COMMENT '管理组凭证密钥Secret',
+  `alipay_public_key` varchar(2000) default NULL COMMENT 'AccessToken',
+  `account_desc` varchar(300) default NULL COMMENT '描述',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  `conversation_secret` varchar(255) default NULL,
+  `PUBLIC_KEY` varchar(2000) default NULL,
+  PRIMARY KEY  (`id`),
   UNIQUE KEY `uniq_corpid` (`appid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='账号信息表';
 
@@ -49,18 +49,18 @@ INSERT INTO `alipay_account` VALUES ('402880a94742e24e014742e8942b0002', 'jeewx�
 DROP TABLE IF EXISTS `alipay_autoresponse`;
 CREATE TABLE `alipay_autoresponse` (
   `id` varchar(100) NOT NULL,
-  `key_word` varchar(200) DEFAULT NULL COMMENT '关键字',
-  `res_content` varchar(500) DEFAULT NULL COMMENT '回复内容',
-  `msg_type` varchar(100) DEFAULT NULL COMMENT '消息类型',
-  `template_name` varchar(100) DEFAULT NULL COMMENT '模板名称',
-  `accountid` varchar(100) DEFAULT NULL COMMENT '微信账号id',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`),
+  `key_word` varchar(200) default NULL COMMENT '关键字',
+  `res_content` varchar(500) default NULL COMMENT '回复内容',
+  `msg_type` varchar(100) default NULL COMMENT '消息类型',
+  `template_name` varchar(100) default NULL COMMENT '模板名称',
+  `accountid` varchar(100) default NULL COMMENT '微信账号id',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`),
   KEY `idx_accountid` (`accountid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='关键字管理';
 
@@ -79,16 +79,16 @@ CREATE TABLE `alipay_autoresponse_default` (
   `id` varchar(50) NOT NULL COMMENT '主键Id',
   `templatename` varchar(200) NOT NULL COMMENT '模板名称',
   `templateid` varchar(50) NOT NULL COMMENT '模板Id',
-  `msgtype` varchar(40) DEFAULT NULL COMMENT '消息类型',
-  `accountid` varchar(40) DEFAULT NULL COMMENT '微信账号Id',
-  `iswork` varchar(10) DEFAULT NULL COMMENT '是否启用',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`)
+  `msgtype` varchar(40) default NULL COMMENT '消息类型',
+  `accountid` varchar(40) default NULL COMMENT '微信账号Id',
+  `iswork` varchar(10) default NULL COMMENT '是否启用',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='默认关键字回复';
 
 -- ----------------------------
@@ -102,18 +102,18 @@ INSERT INTO `alipay_autoresponse_default` VALUES ('8a792db34fdf51b3014fdfb22e870
 DROP TABLE IF EXISTS `alipay_gzentity`;
 CREATE TABLE `alipay_gzentity` (
   `id` varchar(100) NOT NULL,
-  `template_name` varchar(100) DEFAULT NULL COMMENT '模板名称',
-  `template_id` varchar(100) DEFAULT NULL COMMENT '模板id',
-  `template_type` varchar(100) DEFAULT NULL COMMENT '类型 文本_text,图文_news',
-  `is_work` varchar(100) DEFAULT NULL COMMENT '是否启用 未启用_0,启用_1',
-  `accountid` varchar(100) DEFAULT NULL COMMENT '微信账号id',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`)
+  `template_name` varchar(100) default NULL COMMENT '模板名称',
+  `template_id` varchar(100) default NULL COMMENT '模板id',
+  `template_type` varchar(100) default NULL COMMENT '类型 文本_text,图文_news',
+  `is_work` varchar(100) default NULL COMMENT '是否启用 未启用_0,启用_1',
+  `accountid` varchar(100) default NULL COMMENT '微信账号id',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='关注回复';
 
 -- ----------------------------
@@ -127,27 +127,27 @@ INSERT INTO `alipay_gzentity` VALUES ('4B535E499E3342E5AFC94C2D72CA082E', '支�
 -- ----------------------------
 DROP TABLE IF EXISTS `alipay_gzuserinfo`;
 CREATE TABLE `alipay_gzuserinfo` (
-  `id` varchar(100) CHARACTER SET gbk NOT NULL COMMENT '主键',
-  `userid` varchar(100) DEFAULT NULL COMMENT '账号',
-  `name` varchar(100) DEFAULT NULL COMMENT '姓名',
-  `department` varchar(200) DEFAULT NULL COMMENT '部门',
-  `position` varchar(100) DEFAULT NULL COMMENT '职位',
-  `mobile` varchar(100) DEFAULT NULL COMMENT '电话',
-  `province` varchar(100) DEFAULT NULL COMMENT '省份',
-  `gender` varchar(100) DEFAULT NULL COMMENT '性别gender=1表示男，=0表示女',
-  `email` varchar(400) DEFAULT NULL COMMENT '邮箱',
-  `weixinid` varchar(100) DEFAULT NULL COMMENT '微信号',
-  `avatar` varchar(100) DEFAULT NULL COMMENT '头像url',
-  `subscribe_status` varchar(100) DEFAULT NULL COMMENT '关注状态: 1=已关注，2=已冻结，4=未关注',
-  `subscribe_time` datetime DEFAULT NULL COMMENT '关注时间',
-  `accountid` varchar(100) DEFAULT NULL COMMENT '微信账号ID',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`)
+  `id` varchar(100) character set gbk NOT NULL COMMENT '主键',
+  `userid` varchar(100) default NULL COMMENT '账号',
+  `name` varchar(100) default NULL COMMENT '姓名',
+  `department` varchar(200) default NULL COMMENT '部门',
+  `position` varchar(100) default NULL COMMENT '职位',
+  `mobile` varchar(100) default NULL COMMENT '电话',
+  `province` varchar(100) default NULL COMMENT '省份',
+  `gender` varchar(100) default NULL COMMENT '性别gender=1表示男，=0表示女',
+  `email` varchar(400) default NULL COMMENT '邮箱',
+  `weixinid` varchar(100) default NULL COMMENT '微信号',
+  `avatar` varchar(100) default NULL COMMENT '头像url',
+  `subscribe_status` varchar(100) default NULL COMMENT '关注状态: 1=已关注，2=已冻结，4=未关注',
+  `subscribe_time` datetime default NULL COMMENT '关注时间',
+  `accountid` varchar(100) default NULL COMMENT '微信账号ID',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='关注用户';
 
 -- ----------------------------
@@ -178,22 +178,22 @@ INSERT INTO `alipay_gzuserinfo` VALUES ('F641D6DF5CCA42B3835F4EB7F832D73E', '208
 DROP TABLE IF EXISTS `alipay_menu`;
 CREATE TABLE `alipay_menu` (
   `ID` varchar(32) NOT NULL,
-  `agent_id` varchar(255) DEFAULT NULL COMMENT '应用主键ID',
-  `menu_name` varchar(255) DEFAULT NULL COMMENT '菜单标题',
-  `menu_type` varchar(255) DEFAULT NULL COMMENT '菜单类型',
-  `menu_key` varchar(255) DEFAULT NULL COMMENT '菜单KEY',
-  `orders` varchar(10) DEFAULT NULL COMMENT '菜单位置',
-  `msg_type` varchar(255) DEFAULT NULL COMMENT '响应消息类型',
-  `template_id` varchar(255) DEFAULT NULL COMMENT '关联素材ID',
-  `url` varchar(1000) DEFAULT NULL COMMENT '网页链接',
-  `father_id` varchar(32) DEFAULT NULL COMMENT '父ID',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`ID`),
+  `agent_id` varchar(255) default NULL COMMENT '应用主键ID',
+  `menu_name` varchar(255) default NULL COMMENT '菜单标题',
+  `menu_type` varchar(255) default NULL COMMENT '菜单类型',
+  `menu_key` varchar(255) default NULL COMMENT '菜单KEY',
+  `orders` varchar(10) default NULL COMMENT '菜单位置',
+  `msg_type` varchar(255) default NULL COMMENT '响应消息类型',
+  `template_id` varchar(255) default NULL COMMENT '关联素材ID',
+  `url` varchar(1000) default NULL COMMENT '网页链接',
+  `father_id` varchar(32) default NULL COMMENT '父ID',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`ID`),
   UNIQUE KEY `menu_key` (`menu_key`),
   UNIQUE KEY `order` (`orders`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='自定义菜单表';
@@ -214,12 +214,12 @@ INSERT INTO `alipay_menu` VALUES ('EFF7B7D2662946AFA2DC9E230D8D5208', null, '捷
 DROP TABLE IF EXISTS `alipay_messagelog`;
 CREATE TABLE `alipay_messagelog` (
   `id` varchar(200) NOT NULL,
-  `message_type` varchar(50) DEFAULT NULL,
-  `content_id` varchar(500) DEFAULT NULL,
-  `receive_message` varchar(200) DEFAULT NULL,
-  `create_date` datetime DEFAULT NULL,
+  `message_type` varchar(50) default NULL,
+  `content_id` varchar(500) default NULL,
+  `receive_message` varchar(200) default NULL,
+  `create_date` datetime default NULL,
   `message_content` text,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -232,22 +232,22 @@ CREATE TABLE `alipay_messagelog` (
 DROP TABLE IF EXISTS `alipay_newsitem`;
 CREATE TABLE `alipay_newsitem` (
   `id` varchar(100) NOT NULL,
-  `title` varchar(300) DEFAULT NULL COMMENT '标题',
-  `author` varchar(100) DEFAULT NULL COMMENT '作者',
-  `image_path` varchar(100) DEFAULT NULL COMMENT '图片路径',
+  `title` varchar(300) default NULL COMMENT '标题',
+  `author` varchar(100) default NULL COMMENT '作者',
+  `image_path` varchar(100) default NULL COMMENT '图片路径',
   `content` longtext COMMENT '内容',
-  `templateid` varchar(100) DEFAULT NULL COMMENT '图文模板id',
-  `description` varchar(400) DEFAULT NULL COMMENT '摘要',
-  `order_no` varchar(100) DEFAULT NULL COMMENT '新闻顺序',
-  `url` varchar(100) DEFAULT NULL COMMENT '消息内容的url',
-  `hdid` varchar(100) DEFAULT NULL COMMENT '活动id',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`)
+  `templateid` varchar(100) default NULL COMMENT '图文模板id',
+  `description` varchar(400) default NULL COMMENT '摘要',
+  `order_no` varchar(100) default NULL COMMENT '新闻顺序',
+  `url` varchar(100) default NULL COMMENT '消息内容的url',
+  `hdid` varchar(100) default NULL COMMENT '活动id',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='图文素材新闻';
 
 -- ----------------------------
@@ -268,16 +268,16 @@ INSERT INTO `alipay_newsitem` VALUES ('FFF442C7C80D4052B08E37FF4F96F3C0', 'jeewx
 DROP TABLE IF EXISTS `alipay_newstemplate`;
 CREATE TABLE `alipay_newstemplate` (
   `id` varchar(100) NOT NULL,
-  `template_name` varchar(200) DEFAULT NULL COMMENT '模板名称',
-  `template_type` varchar(100) DEFAULT NULL COMMENT '模板类型',
-  `accountid` varchar(100) DEFAULT NULL COMMENT '微信企业号账号id',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`)
+  `template_name` varchar(200) default NULL COMMENT '模板名称',
+  `template_type` varchar(100) default NULL COMMENT '模板类型',
+  `accountid` varchar(100) default NULL COMMENT '微信企业号账号id',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='图文素材模板';
 
 -- ----------------------------
@@ -292,23 +292,23 @@ DROP TABLE IF EXISTS `alipay_receivetext`;
 CREATE TABLE `alipay_receivetext` (
   `id` varchar(100) NOT NULL,
   `tousername` varchar(100) NOT NULL COMMENT '开发者微信号',
-  `fromusername` varchar(100) DEFAULT NULL COMMENT '发送方帐号（一个OpenID）',
-  `createtime` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '消息创建时间 （整型）',
-  `msgtype` varchar(100) DEFAULT NULL COMMENT '消息类型（text/image/location/link）',
-  `msgid` varchar(100) DEFAULT NULL COMMENT '消息id，64位整型',
-  `content` varchar(400) DEFAULT NULL COMMENT '消息内容',
-  `response` varchar(10) DEFAULT NULL COMMENT '是否回复',
-  `rescontent` varchar(400) DEFAULT NULL COMMENT '回复内容',
-  `nickname` varchar(100) DEFAULT NULL COMMENT '用户昵称',
-  `accountid` varchar(40) DEFAULT NULL COMMENT '微信账号Id',
-  `agent_id` varchar(200) DEFAULT NULL COMMENT '应用ID(微信)',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`)
+  `fromusername` varchar(100) default NULL COMMENT '发送方帐号（一个OpenID）',
+  `createtime` timestamp NULL default CURRENT_TIMESTAMP COMMENT '消息创建时间 （整型）',
+  `msgtype` varchar(100) default NULL COMMENT '消息类型（text/image/location/link）',
+  `msgid` varchar(100) default NULL COMMENT '消息id，64位整型',
+  `content` varchar(400) default NULL COMMENT '消息内容',
+  `response` varchar(10) default NULL COMMENT '是否回复',
+  `rescontent` varchar(400) default NULL COMMENT '回复内容',
+  `nickname` varchar(100) default NULL COMMENT '用户昵称',
+  `accountid` varchar(40) default NULL COMMENT '微信账号Id',
+  `agent_id` varchar(200) default NULL COMMENT '应用ID(微信)',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文本消息';
 
 -- ----------------------------
@@ -342,14 +342,14 @@ DROP TABLE IF EXISTS `alipay_receivetext_content`;
 CREATE TABLE `alipay_receivetext_content` (
   `id` varchar(100) NOT NULL,
   `receivetext_id` varchar(100) NOT NULL COMMENT '用户消息表 id',
-  `content` varchar(400) DEFAULT NULL COMMENT '消息内容',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`)
+  `content` varchar(400) default NULL COMMENT '消息内容',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户消息详情';
 
 -- ----------------------------
@@ -365,14 +365,14 @@ CREATE TABLE `alipay_texttemplate` (
   `id` varchar(100) NOT NULL,
   `template_name` varchar(200) NOT NULL COMMENT '模板名称',
   `template_content` varchar(500) NOT NULL COMMENT '模板内容',
-  `accountid` varchar(100) DEFAULT NULL COMMENT '微信企业账户id',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`)
+  `accountid` varchar(100) default NULL COMMENT '微信企业账户id',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文本模板';
 
 -- ----------------------------
@@ -391,16 +391,16 @@ INSERT INTO `alipay_texttemplate` VALUES ('ff808081538e81b40153a172bfcc0070', 'J
 DROP TABLE IF EXISTS `cgform_button`;
 CREATE TABLE `cgform_button` (
   `ID` varchar(32) NOT NULL,
-  `BUTTON_CODE` varchar(50) DEFAULT NULL,
-  `button_icon` varchar(20) DEFAULT NULL,
-  `BUTTON_NAME` varchar(50) DEFAULT NULL,
-  `BUTTON_STATUS` varchar(2) DEFAULT NULL,
-  `BUTTON_STYLE` varchar(20) DEFAULT NULL,
-  `EXP` varchar(255) DEFAULT NULL,
-  `FORM_ID` varchar(32) DEFAULT NULL,
-  `OPT_TYPE` varchar(20) DEFAULT NULL,
-  `order_num` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `BUTTON_CODE` varchar(50) default NULL,
+  `button_icon` varchar(20) default NULL,
+  `BUTTON_NAME` varchar(50) default NULL,
+  `BUTTON_STATUS` varchar(2) default NULL,
+  `BUTTON_STYLE` varchar(20) default NULL,
+  `EXP` varchar(255) default NULL,
+  `FORM_ID` varchar(32) default NULL,
+  `OPT_TYPE` varchar(20) default NULL,
+  `order_num` int(11) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -413,12 +413,12 @@ CREATE TABLE `cgform_button` (
 DROP TABLE IF EXISTS `cgform_button_sql`;
 CREATE TABLE `cgform_button_sql` (
   `ID` varchar(32) NOT NULL,
-  `BUTTON_CODE` varchar(50) DEFAULT NULL,
+  `BUTTON_CODE` varchar(50) default NULL,
   `CGB_SQL` tinyblob,
-  `CGB_SQL_NAME` varchar(50) DEFAULT NULL,
+  `CGB_SQL_NAME` varchar(50) default NULL,
   `CONTENT` longtext,
-  `FORM_ID` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `FORM_ID` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -432,10 +432,10 @@ DROP TABLE IF EXISTS `cgform_enhance_js`;
 CREATE TABLE `cgform_enhance_js` (
   `ID` varchar(32) NOT NULL,
   `CG_JS` blob,
-  `CG_JS_TYPE` varchar(20) DEFAULT NULL,
+  `CG_JS_TYPE` varchar(20) default NULL,
   `CONTENT` longtext,
-  `FORM_ID` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `FORM_ID` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -449,36 +449,36 @@ DROP TABLE IF EXISTS `cgform_field`;
 CREATE TABLE `cgform_field` (
   `id` varchar(32) NOT NULL,
   `content` varchar(200) NOT NULL,
-  `create_by` varchar(255) DEFAULT NULL,
-  `create_date` datetime DEFAULT NULL,
-  `create_name` varchar(32) DEFAULT NULL,
-  `dict_field` varchar(100) DEFAULT NULL,
-  `dict_table` varchar(100) DEFAULT NULL,
-  `dict_text` varchar(100) DEFAULT NULL,
-  `field_default` varchar(20) DEFAULT NULL,
-  `field_href` varchar(200) DEFAULT NULL,
-  `field_length` int(11) DEFAULT NULL,
+  `create_by` varchar(255) default NULL,
+  `create_date` datetime default NULL,
+  `create_name` varchar(32) default NULL,
+  `dict_field` varchar(100) default NULL,
+  `dict_table` varchar(100) default NULL,
+  `dict_text` varchar(100) default NULL,
+  `field_default` varchar(20) default NULL,
+  `field_href` varchar(200) default NULL,
+  `field_length` int(11) default NULL,
   `field_name` varchar(32) NOT NULL,
-  `field_valid_type` varchar(10) DEFAULT NULL,
-  `is_key` varchar(2) DEFAULT NULL,
-  `is_null` varchar(5) DEFAULT NULL,
-  `is_query` varchar(5) DEFAULT NULL,
-  `is_show` varchar(5) DEFAULT NULL,
-  `is_show_list` varchar(5) DEFAULT NULL,
+  `field_valid_type` varchar(10) default NULL,
+  `is_key` varchar(2) default NULL,
+  `is_null` varchar(5) default NULL,
+  `is_query` varchar(5) default NULL,
+  `is_show` varchar(5) default NULL,
+  `is_show_list` varchar(5) default NULL,
   `length` int(11) NOT NULL,
-  `main_field` varchar(100) DEFAULT NULL,
-  `main_table` varchar(100) DEFAULT NULL,
-  `old_field_name` varchar(32) DEFAULT NULL,
-  `order_num` int(11) DEFAULT NULL,
-  `point_length` int(11) DEFAULT NULL,
-  `query_mode` varchar(10) DEFAULT NULL,
-  `show_type` varchar(10) DEFAULT NULL,
+  `main_field` varchar(100) default NULL,
+  `main_table` varchar(100) default NULL,
+  `old_field_name` varchar(32) default NULL,
+  `order_num` int(11) default NULL,
+  `point_length` int(11) default NULL,
+  `query_mode` varchar(10) default NULL,
+  `show_type` varchar(10) default NULL,
   `type` varchar(32) NOT NULL,
-  `update_by` varchar(32) DEFAULT NULL,
-  `update_date` datetime DEFAULT NULL,
-  `update_name` varchar(32) DEFAULT NULL,
+  `update_by` varchar(32) default NULL,
+  `update_date` datetime default NULL,
+  `update_name` varchar(32) default NULL,
   `table_id` varchar(32) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY  (`id`),
   KEY `FK_iwtkke1oigq9ukafldrovslx6` (`table_id`),
   CONSTRAINT `FK_iwtkke1oigq9ukafldrovslx6` FOREIGN KEY (`table_id`) REFERENCES `cgform_head` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -583,17 +583,17 @@ CREATE TABLE `cgform_ftl` (
   `ID` varchar(32) NOT NULL,
   `CGFORM_ID` varchar(36) NOT NULL,
   `CGFORM_NAME` varchar(100) NOT NULL,
-  `CREATE_BY` varchar(36) DEFAULT NULL,
-  `CREATE_DATE` datetime DEFAULT NULL,
-  `CREATE_NAME` varchar(32) DEFAULT NULL,
+  `CREATE_BY` varchar(36) default NULL,
+  `CREATE_DATE` datetime default NULL,
+  `CREATE_NAME` varchar(32) default NULL,
   `FTL_CONTENT` longtext,
-  `FTL_STATUS` varchar(50) DEFAULT NULL,
+  `FTL_STATUS` varchar(50) default NULL,
   `FTL_VERSION` int(11) NOT NULL,
-  `FTL_WORD_URL` varchar(200) DEFAULT NULL,
-  `UPDATE_BY` varchar(36) DEFAULT NULL,
-  `UPDATE_DATE` datetime DEFAULT NULL,
-  `UPDATE_NAME` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `FTL_WORD_URL` varchar(200) default NULL,
+  `UPDATE_BY` varchar(36) default NULL,
+  `UPDATE_DATE` datetime default NULL,
+  `UPDATE_NAME` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -607,9 +607,9 @@ DROP TABLE IF EXISTS `cgform_head`;
 CREATE TABLE `cgform_head` (
   `id` varchar(32) NOT NULL,
   `content` varchar(200) NOT NULL,
-  `create_by` varchar(32) DEFAULT NULL,
-  `create_date` datetime DEFAULT NULL,
-  `create_name` varchar(32) DEFAULT NULL,
+  `create_by` varchar(32) default NULL,
+  `create_date` datetime default NULL,
+  `create_name` varchar(32) default NULL,
   `is_checkbox` varchar(5) NOT NULL,
   `is_dbsynch` varchar(20) NOT NULL,
   `is_pagination` varchar(5) NOT NULL,
@@ -617,16 +617,16 @@ CREATE TABLE `cgform_head` (
   `jform_type` int(11) NOT NULL,
   `jform_version` varchar(10) NOT NULL,
   `querymode` varchar(10) NOT NULL,
-  `relation_type` int(11) DEFAULT NULL,
+  `relation_type` int(11) default NULL,
   `sub_table_str` longtext,
   `table_name` varchar(20) NOT NULL,
-  `update_by` varchar(32) DEFAULT NULL,
-  `update_date` datetime DEFAULT NULL,
-  `update_name` varchar(32) DEFAULT NULL,
-  `jform_pk_sequence` varchar(200) DEFAULT NULL,
-  `jform_pk_type` varchar(100) DEFAULT NULL,
-  `tab_order` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `update_by` varchar(32) default NULL,
+  `update_date` datetime default NULL,
+  `update_name` varchar(32) default NULL,
+  `jform_pk_sequence` varchar(200) default NULL,
+  `jform_pk_type` varchar(100) default NULL,
+  `tab_order` int(11) default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -651,7 +651,7 @@ CREATE TABLE `cgform_uploadfiles` (
   `CGFORM_ID` varchar(36) NOT NULL,
   `CGFORM_NAME` varchar(100) NOT NULL,
   `id` varchar(32) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY  (`id`),
   KEY `FK_qwig8sn3okhvh4wye8nn8gdeg` (`id`),
   CONSTRAINT `FK_qwig8sn3okhvh4wye8nn8gdeg` FOREIGN KEY (`id`) REFERENCES `t_s_attachment` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -667,7 +667,7 @@ DROP TABLE IF EXISTS `ck_editor`;
 CREATE TABLE `ck_editor` (
   `ID` varchar(32) NOT NULL,
   `CONTENTS` blob,
-  PRIMARY KEY (`ID`)
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -681,10 +681,10 @@ INSERT INTO `ck_editor` VALUES ('4028d881436d514601436d5219250129', 0x3C68746D6C
 DROP TABLE IF EXISTS `ck_finder`;
 CREATE TABLE `ck_finder` (
   `ID` varchar(32) NOT NULL,
-  `ATTACHMENT` varchar(255) DEFAULT NULL,
-  `IMAGE` varchar(255) DEFAULT NULL,
+  `ATTACHMENT` varchar(255) default NULL,
+  `IMAGE` varchar(255) default NULL,
   `REMARK` longtext,
-  PRIMARY KEY (`ID`)
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -696,13 +696,13 @@ CREATE TABLE `ck_finder` (
 -- ----------------------------
 DROP TABLE IF EXISTS `doc`;
 CREATE TABLE `doc` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID` int(11) NOT NULL auto_increment,
   `DOCCONTENT` longblob,
-  `DOCDATE` datetime DEFAULT NULL,
-  `DOCID` varchar(255) DEFAULT NULL,
-  `DOCTITLE` varchar(255) DEFAULT NULL,
-  `DOCTYPE` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `DOCDATE` datetime default NULL,
+  `DOCID` varchar(255) default NULL,
+  `DOCTITLE` varchar(255) default NULL,
+  `DOCTYPE` varchar(255) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -715,20 +715,20 @@ CREATE TABLE `doc` (
 DROP TABLE IF EXISTS `jeecg_demo`;
 CREATE TABLE `jeecg_demo` (
   `ID` varchar(32) NOT NULL,
-  `AGE` int(11) DEFAULT NULL,
-  `BIRTHDAY` datetime DEFAULT NULL,
-  `content` varchar(255) DEFAULT NULL,
-  `CREATE_TIME` datetime DEFAULT NULL,
-  `DEP_ID` varchar(255) DEFAULT NULL,
-  `EMAIL` varchar(255) DEFAULT NULL,
-  `MOBILE_PHONE` varchar(255) DEFAULT NULL,
-  `OFFICE_PHONE` varchar(255) DEFAULT NULL,
-  `SALARY` decimal(19,2) DEFAULT NULL,
-  `SEX` varchar(255) DEFAULT NULL,
-  `status` varchar(255) DEFAULT NULL,
+  `AGE` int(11) default NULL,
+  `BIRTHDAY` datetime default NULL,
+  `content` varchar(255) default NULL,
+  `CREATE_TIME` datetime default NULL,
+  `DEP_ID` varchar(255) default NULL,
+  `EMAIL` varchar(255) default NULL,
+  `MOBILE_PHONE` varchar(255) default NULL,
+  `OFFICE_PHONE` varchar(255) default NULL,
+  `SALARY` decimal(19,2) default NULL,
+  `SEX` varchar(255) default NULL,
+  `status` varchar(255) default NULL,
   `USER_NAME` varchar(255) NOT NULL,
-  `create_date` datetime DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `create_date` datetime default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -742,9 +742,9 @@ INSERT INTO `jeecg_demo` VALUES ('4028d881436d514601436d521ad4015e', '12', '2014
 DROP TABLE IF EXISTS `jeecg_demo_course`;
 CREATE TABLE `jeecg_demo_course` (
   `ID` varchar(32) NOT NULL,
-  `NAME` varchar(25) DEFAULT NULL,
-  `teacher_ID` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
+  `NAME` varchar(25) default NULL,
+  `teacher_ID` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`),
   KEY `FK_g3jn8mfod69i7jfv5gnrcvgbx` (`teacher_ID`),
   CONSTRAINT `FK_g3jn8mfod69i7jfv5gnrcvgbx` FOREIGN KEY (`teacher_ID`) REFERENCES `jeecg_demo_teacher` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -760,11 +760,11 @@ INSERT INTO `jeecg_demo_course` VALUES ('4028d881436d514601436d5219b0015b', '海
 DROP TABLE IF EXISTS `jeecg_demo_student`;
 CREATE TABLE `jeecg_demo_student` (
   `ID` varchar(32) NOT NULL,
-  `BIRTHDAY` datetime DEFAULT NULL,
-  `NAME` varchar(32) DEFAULT NULL,
-  `SEX` varchar(1) DEFAULT NULL,
-  `COURSE_ID` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
+  `BIRTHDAY` datetime default NULL,
+  `NAME` varchar(32) default NULL,
+  `SEX` varchar(1) default NULL,
+  `COURSE_ID` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`),
   KEY `FK_r86q81koyocgod3cx6529hbpw` (`COURSE_ID`),
   CONSTRAINT `FK_r86q81koyocgod3cx6529hbpw` FOREIGN KEY (`COURSE_ID`) REFERENCES `jeecg_demo_course` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -781,9 +781,9 @@ INSERT INTO `jeecg_demo_student` VALUES ('4028d881436d514601436d5219b7015d', nul
 DROP TABLE IF EXISTS `jeecg_demo_teacher`;
 CREATE TABLE `jeecg_demo_teacher` (
   `ID` varchar(32) NOT NULL,
-  `NAME` varchar(12) DEFAULT NULL,
-  `pic` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `NAME` varchar(12) default NULL,
+  `pic` varchar(255) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -797,17 +797,17 @@ INSERT INTO `jeecg_demo_teacher` VALUES ('4028d881436d514601436d5219ae015a', '�
 DROP TABLE IF EXISTS `jeecg_matter_bom`;
 CREATE TABLE `jeecg_matter_bom` (
   `ID` varchar(32) NOT NULL,
-  `address` varchar(255) DEFAULT NULL,
+  `address` varchar(255) default NULL,
   `code` varchar(50) NOT NULL,
   `name` varchar(50) NOT NULL,
   `price` decimal(21,6) NOT NULL,
-  `productionDate` datetime DEFAULT NULL,
+  `productionDate` datetime default NULL,
   `quantity` int(11) NOT NULL,
   `stock` int(11) NOT NULL,
-  `unit` varchar(50) DEFAULT NULL,
-  `weight` varchar(50) DEFAULT NULL,
-  `parent_ID` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
+  `unit` varchar(50) default NULL,
+  `weight` varchar(50) default NULL,
+  `parent_ID` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`),
   KEY `FK_fldfyrevj0li4hej5b2gu2q7w` (`parent_ID`),
   CONSTRAINT `FK_fldfyrevj0li4hej5b2gu2q7w` FOREIGN KEY (`parent_ID`) REFERENCES `jeecg_matter_bom` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -824,19 +824,19 @@ INSERT INTO `jeecg_matter_bom` VALUES ('4028d881436d514601436d521ae70164', '上�
 DROP TABLE IF EXISTS `jeecg_minidao`;
 CREATE TABLE `jeecg_minidao` (
   `ID` varchar(32) NOT NULL,
-  `AGE` int(11) DEFAULT NULL,
-  `BIRTHDAY` datetime DEFAULT NULL,
-  `CONTENT` varchar(255) DEFAULT NULL,
-  `CREATE_TIME` datetime DEFAULT NULL,
-  `DEP_ID` varchar(255) DEFAULT NULL,
-  `EMAIL` varchar(255) DEFAULT NULL,
-  `MOBILE_PHONE` varchar(255) DEFAULT NULL,
-  `OFFICE_PHONE` varchar(255) DEFAULT NULL,
-  `SALARY` decimal(19,2) DEFAULT NULL,
-  `SEX` int(11) DEFAULT NULL,
-  `STATUS` varchar(255) DEFAULT NULL,
+  `AGE` int(11) default NULL,
+  `BIRTHDAY` datetime default NULL,
+  `CONTENT` varchar(255) default NULL,
+  `CREATE_TIME` datetime default NULL,
+  `DEP_ID` varchar(255) default NULL,
+  `EMAIL` varchar(255) default NULL,
+  `MOBILE_PHONE` varchar(255) default NULL,
+  `OFFICE_PHONE` varchar(255) default NULL,
+  `SALARY` decimal(19,2) default NULL,
+  `SEX` int(11) default NULL,
+  `STATUS` varchar(255) default NULL,
   `USER_NAME` varchar(255) NOT NULL,
-  PRIMARY KEY (`ID`)
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -849,22 +849,22 @@ CREATE TABLE `jeecg_minidao` (
 DROP TABLE IF EXISTS `jeecg_order_custom`;
 CREATE TABLE `jeecg_order_custom` (
   `ID` varchar(32) NOT NULL,
-  `CREATE_DT` datetime DEFAULT NULL,
-  `CRTUSER` varchar(12) DEFAULT NULL,
-  `CRTUSER_NAME` varchar(10) DEFAULT NULL,
-  `DEL_DT` datetime DEFAULT NULL,
-  `DELFLAG` int(11) DEFAULT NULL,
+  `CREATE_DT` datetime default NULL,
+  `CRTUSER` varchar(12) default NULL,
+  `CRTUSER_NAME` varchar(10) default NULL,
+  `DEL_DT` datetime default NULL,
+  `DELFLAG` int(11) default NULL,
   `GO_ORDER_CODE` varchar(12) NOT NULL,
-  `GOC_BUSS_CONTENT` varchar(33) DEFAULT NULL,
-  `GOC_CONTENT` varchar(66) DEFAULT NULL,
-  `GOC_CUS_NAME` varchar(16) DEFAULT NULL,
-  `GOC_IDCARD` varchar(18) DEFAULT NULL,
-  `GOC_PASSPORT_CODE` varchar(10) DEFAULT NULL,
-  `GOC_SEX` varchar(255) DEFAULT NULL,
-  `MODIFIER` varchar(12) DEFAULT NULL,
-  `MODIFIER_NAME` varchar(10) DEFAULT NULL,
-  `MODIFY_DT` datetime DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `GOC_BUSS_CONTENT` varchar(33) default NULL,
+  `GOC_CONTENT` varchar(66) default NULL,
+  `GOC_CUS_NAME` varchar(16) default NULL,
+  `GOC_IDCARD` varchar(18) default NULL,
+  `GOC_PASSPORT_CODE` varchar(10) default NULL,
+  `GOC_SEX` varchar(255) default NULL,
+  `MODIFIER` varchar(12) default NULL,
+  `MODIFIER_NAME` varchar(10) default NULL,
+  `MODIFY_DT` datetime default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -878,24 +878,24 @@ INSERT INTO `jeecg_order_custom` VALUES ('4028d881436d514601436d521ae20162', nul
 DROP TABLE IF EXISTS `jeecg_order_main`;
 CREATE TABLE `jeecg_order_main` (
   `ID` varchar(32) NOT NULL,
-  `CREATE_DT` datetime DEFAULT NULL,
-  `CRTUSER` varchar(12) DEFAULT NULL,
-  `CRTUSER_NAME` varchar(10) DEFAULT NULL,
-  `DEL_DT` datetime DEFAULT NULL,
-  `DELFLAG` int(11) DEFAULT NULL,
-  `GO_ALL_PRICE` decimal(10,2) DEFAULT NULL,
-  `GO_CONTACT_NAME` varchar(16) DEFAULT NULL,
-  `GO_CONTENT` varchar(66) DEFAULT NULL,
+  `CREATE_DT` datetime default NULL,
+  `CRTUSER` varchar(12) default NULL,
+  `CRTUSER_NAME` varchar(10) default NULL,
+  `DEL_DT` datetime default NULL,
+  `DELFLAG` int(11) default NULL,
+  `GO_ALL_PRICE` decimal(10,2) default NULL,
+  `GO_CONTACT_NAME` varchar(16) default NULL,
+  `GO_CONTENT` varchar(66) default NULL,
   `GO_ORDER_CODE` varchar(12) NOT NULL,
-  `GO_ORDER_COUNT` int(11) DEFAULT NULL,
-  `GO_RETURN_PRICE` decimal(10,2) DEFAULT NULL,
-  `GO_TELPHONE` varchar(11) DEFAULT NULL,
-  `GODER_TYPE` varchar(255) DEFAULT NULL,
-  `MODIFIER` varchar(12) DEFAULT NULL,
-  `MODIFIER_NAME` varchar(10) DEFAULT NULL,
-  `MODIFY_DT` datetime DEFAULT NULL,
-  `USERTYPE` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `GO_ORDER_COUNT` int(11) default NULL,
+  `GO_RETURN_PRICE` decimal(10,2) default NULL,
+  `GO_TELPHONE` varchar(11) default NULL,
+  `GODER_TYPE` varchar(255) default NULL,
+  `MODIFIER` varchar(12) default NULL,
+  `MODIFIER_NAME` varchar(10) default NULL,
+  `MODIFY_DT` datetime default NULL,
+  `USERTYPE` varchar(255) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -909,22 +909,22 @@ INSERT INTO `jeecg_order_main` VALUES ('4028d881436d514601436d521adb0160', null,
 DROP TABLE IF EXISTS `jeecg_order_product`;
 CREATE TABLE `jeecg_order_product` (
   `ID` varchar(32) NOT NULL,
-  `CREATE_DT` datetime DEFAULT NULL,
-  `CRTUSER` varchar(12) DEFAULT NULL,
-  `CRTUSER_NAME` varchar(10) DEFAULT NULL,
-  `DEL_DT` datetime DEFAULT NULL,
-  `DELFLAG` int(11) DEFAULT NULL,
+  `CREATE_DT` datetime default NULL,
+  `CRTUSER` varchar(12) default NULL,
+  `CRTUSER_NAME` varchar(10) default NULL,
+  `DEL_DT` datetime default NULL,
+  `DELFLAG` int(11) default NULL,
   `GO_ORDER_CODE` varchar(12) NOT NULL,
-  `GOP_CONTENT` varchar(66) DEFAULT NULL,
-  `GOP_COUNT` int(11) DEFAULT NULL,
-  `GOP_ONE_PRICE` decimal(10,2) DEFAULT NULL,
-  `GOP_PRODUCT_NAME` varchar(33) DEFAULT NULL,
+  `GOP_CONTENT` varchar(66) default NULL,
+  `GOP_COUNT` int(11) default NULL,
+  `GOP_ONE_PRICE` decimal(10,2) default NULL,
+  `GOP_PRODUCT_NAME` varchar(33) default NULL,
   `GOP_PRODUCT_TYPE` varchar(1) NOT NULL,
-  `GOP_SUM_PRICE` decimal(10,2) DEFAULT NULL,
-  `MODIFIER` varchar(12) DEFAULT NULL,
-  `MODIFIER_NAME` varchar(10) DEFAULT NULL,
-  `MODIFY_DT` datetime DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `GOP_SUM_PRICE` decimal(10,2) default NULL,
+  `MODIFIER` varchar(12) default NULL,
+  `MODIFIER_NAME` varchar(10) default NULL,
+  `MODIFY_DT` datetime default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -942,7 +942,7 @@ CREATE TABLE `jform_cgreport_head` (
   `CODE` varchar(36) NOT NULL,
   `CONTENT` longtext NOT NULL,
   `NAME` varchar(100) NOT NULL,
-  PRIMARY KEY (`ID`)
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -956,18 +956,18 @@ INSERT INTO `jform_cgreport_head` VALUES ('402889f847666ae401476670bb72000a', 's
 DROP TABLE IF EXISTS `jform_cgreport_item`;
 CREATE TABLE `jform_cgreport_item` (
   `ID` varchar(36) NOT NULL,
-  `S_FLAG` varchar(2) DEFAULT NULL,
-  `S_MODE` varchar(10) DEFAULT NULL,
-  `CGRHEAD_ID` varchar(36) DEFAULT NULL,
-  `DICT_CODE` varchar(36) DEFAULT NULL,
-  `FIELD_HREF` varchar(120) DEFAULT NULL,
-  `FIELD_NAME` varchar(36) DEFAULT NULL,
+  `S_FLAG` varchar(2) default NULL,
+  `S_MODE` varchar(10) default NULL,
+  `CGRHEAD_ID` varchar(36) default NULL,
+  `DICT_CODE` varchar(36) default NULL,
+  `FIELD_HREF` varchar(120) default NULL,
+  `FIELD_NAME` varchar(36) default NULL,
   `FIELD_TXT` longtext,
-  `FIELD_TYPE` varchar(10) DEFAULT NULL,
-  `IS_SHOW` varchar(5) DEFAULT NULL,
-  `ORDER_NUM` int(11) DEFAULT NULL,
-  `REPLACE_VA` varchar(36) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `FIELD_TYPE` varchar(10) default NULL,
+  `IS_SHOW` varchar(5) default NULL,
+  `ORDER_NUM` int(11) default NULL,
+  `REPLACE_VA` varchar(36) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -994,12 +994,12 @@ CREATE TABLE `jform_leave` (
   `sex` varchar(10) NOT NULL COMMENT '性别',
   `begindate` datetime NOT NULL COMMENT '请假开始时间',
   `enddate` datetime NOT NULL COMMENT '请假结束时间',
-  `day_num` int(11) DEFAULT NULL COMMENT '请假天数',
+  `day_num` int(11) default NULL COMMENT '请假天数',
   `hol_dept` varchar(32) NOT NULL COMMENT '所属部门',
   `hol_reson` varchar(255) NOT NULL COMMENT '请假原因',
   `dep_leader` varchar(20) NOT NULL COMMENT '部门审批人',
   `content` varchar(255) NOT NULL COMMENT '部门审批意见',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -1012,11 +1012,11 @@ CREATE TABLE `jform_leave` (
 DROP TABLE IF EXISTS `jform_order_main`;
 CREATE TABLE `jform_order_main` (
   `id` varchar(36) NOT NULL,
-  `order_code` varchar(50) DEFAULT NULL COMMENT '订单号',
-  `order_date` datetime DEFAULT NULL COMMENT '订单日期',
-  `order_money` double DEFAULT NULL COMMENT '订单金额',
-  `content` varchar(255) DEFAULT NULL COMMENT '备注',
-  PRIMARY KEY (`id`)
+  `order_code` varchar(50) default NULL COMMENT '订单号',
+  `order_date` datetime default NULL COMMENT '订单日期',
+  `order_money` double default NULL COMMENT '订单金额',
+  `content` varchar(255) default NULL COMMENT '备注',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -1029,12 +1029,12 @@ CREATE TABLE `jform_order_main` (
 DROP TABLE IF EXISTS `jg_person`;
 CREATE TABLE `jg_person` (
   `ID` varchar(32) NOT NULL,
-  `AGE` int(11) DEFAULT NULL,
-  `BIRTHDAY` datetime DEFAULT NULL,
-  `CREATEDT` datetime DEFAULT NULL,
+  `AGE` int(11) default NULL,
+  `BIRTHDAY` datetime default NULL,
+  `CREATEDT` datetime default NULL,
   `NAME` varchar(255) NOT NULL,
-  `SALARY` decimal(19,2) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `SALARY` decimal(19,2) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -1049,10 +1049,10 @@ DROP TABLE IF EXISTS `jp_demo_activity`;
 CREATE TABLE `jp_demo_activity` (
   `id` varchar(32) NOT NULL COMMENT 'ID',
   `name` varchar(100) NOT NULL COMMENT '活动名称',
-  `begin_time` datetime DEFAULT NULL COMMENT '活动开始时间',
-  `end_time` datetime DEFAULT NULL COMMENT ' 活动结束时间',
-  `hdurl` varchar(300) DEFAULT NULL COMMENT '入口地址',
-  PRIMARY KEY (`id`)
+  `begin_time` datetime default NULL COMMENT '活动开始时间',
+  `end_time` datetime default NULL COMMENT ' 活动结束时间',
+  `hdurl` varchar(300) default NULL COMMENT '入口地址',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='红包活动表';
 
 -- ----------------------------
@@ -1067,16 +1067,16 @@ INSERT INTO `jp_demo_activity` VALUES ('F4EAEF41A7DF4B59AE9A41455E1643F9', '3', 
 -- ----------------------------
 DROP TABLE IF EXISTS `jp_demo_auth`;
 CREATE TABLE `jp_demo_auth` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '序号',
-  `auth_id` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '' COMMENT '权限编码',
-  `auth_name` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '权限名称',
-  `auth_type` varchar(2) COLLATE utf8_bin DEFAULT NULL COMMENT '权限类型 0:菜单;1:功能',
-  `auth_contr` varchar(256) COLLATE utf8_bin DEFAULT NULL COMMENT '权限控制',
-  `parent_auth_id` char(12) COLLATE utf8_bin DEFAULT NULL COMMENT '上一级权限编码',
-  `leaf_ind` char(2) COLLATE utf8_bin DEFAULT NULL COMMENT '是否叶子节点',
-  PRIMARY KEY (`id`),
+  `id` bigint(20) unsigned NOT NULL auto_increment COMMENT '序号',
+  `auth_id` varchar(32) collate utf8_bin NOT NULL default '' COMMENT '权限编码',
+  `auth_name` varchar(100) collate utf8_bin default NULL COMMENT '权限名称',
+  `auth_type` varchar(2) collate utf8_bin default NULL COMMENT '权限类型 0:菜单;1:功能',
+  `auth_contr` varchar(256) collate utf8_bin default NULL COMMENT '权限控制',
+  `parent_auth_id` char(12) collate utf8_bin default NULL COMMENT '上一级权限编码',
+  `leaf_ind` char(2) collate utf8_bin default NULL COMMENT '是否叶子节点',
+  PRIMARY KEY  (`id`),
   UNIQUE KEY `uniq_authid` (`auth_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='运营系统权限表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='运营系统权限表';
 
 -- ----------------------------
 -- Records of jp_demo_auth
@@ -1100,11 +1100,11 @@ INSERT INTO `jp_demo_auth` VALUES ('12', '210302', '编辑权限', '1', '/system
 DROP TABLE IF EXISTS `optimistic_locking`;
 CREATE TABLE `optimistic_locking` (
   `ID` varchar(32) NOT NULL,
-  `ACCOUNT` int(11) DEFAULT NULL,
-  `AGE` int(11) DEFAULT NULL,
-  `NAME` varchar(85) DEFAULT NULL,
-  `VER` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `ACCOUNT` int(11) default NULL,
+  `AGE` int(11) default NULL,
+  `NAME` varchar(85) default NULL,
+  `VER` int(11) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -1117,19 +1117,19 @@ CREATE TABLE `optimistic_locking` (
 DROP TABLE IF EXISTS `qywx_account`;
 CREATE TABLE `qywx_account` (
   `id` varchar(50) NOT NULL,
-  `accont_name` varchar(100) DEFAULT NULL COMMENT '名称',
-  `corpid` varchar(255) DEFAULT NULL COMMENT '企业号标识CorpID',
-  `secret` varchar(255) DEFAULT NULL COMMENT '管理组凭证密钥Secret',
-  `access_token` varchar(512) DEFAULT NULL COMMENT 'AccessToken',
-  `account_desc` varchar(300) DEFAULT NULL COMMENT '描述',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  `conversation_secret` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  `accont_name` varchar(100) default NULL COMMENT '名称',
+  `corpid` varchar(255) default NULL COMMENT '企业号标识CorpID',
+  `secret` varchar(255) default NULL COMMENT '管理组凭证密钥Secret',
+  `access_token` varchar(512) default NULL COMMENT 'AccessToken',
+  `account_desc` varchar(300) default NULL COMMENT '描述',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  `conversation_secret` varchar(255) default NULL,
+  PRIMARY KEY  (`id`),
   UNIQUE KEY `uniq_corpid` (`corpid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='账号信息表';
 
@@ -1145,28 +1145,28 @@ DROP TABLE IF EXISTS `qywx_agent`;
 CREATE TABLE `qywx_agent` (
   `id` varchar(50) NOT NULL COMMENT '主键Id',
   `account_id` varchar(200) NOT NULL COMMENT '企业号ID',
-  `wx_agentid` varchar(200) DEFAULT NULL COMMENT '应用ID(微信)',
-  `agent_name` varchar(200) DEFAULT NULL COMMENT '应用名称',
-  `token` varchar(50) DEFAULT NULL COMMENT '回调token',
-  `encodingAESKey` varchar(100) DEFAULT NULL COMMENT '回调EncodingAESKey',
-  `square_logo_url` varchar(200) DEFAULT NULL COMMENT '方形头像',
-  `round_logo_url` varchar(200) DEFAULT NULL COMMENT '圆形头像',
-  `logo_mediaid` varchar(100) DEFAULT NULL COMMENT '头像mediaid',
-  `description` varchar(200) DEFAULT NULL COMMENT '描述',
-  `close_status` varchar(200) DEFAULT NULL COMMENT '是否被禁用',
-  `redirect_domain` varchar(200) DEFAULT NULL COMMENT '可信域名',
-  `report_location_flag` varchar(2) DEFAULT NULL COMMENT '是否打开地理位置上报 0：不上报；1：进入会话上报；2：持续上报',
-  `isreportuser` varchar(2) DEFAULT NULL COMMENT '是否接收用户变更通知。0：不接收；1：接收',
-  `isreportenter` varchar(2) DEFAULT NULL COMMENT '是否上报用户进入应用事件。0：不接收；1：接收',
-  `app_type` varchar(2) DEFAULT NULL COMMENT '应用类型。1：消息型；2：主页型',
-  `home_url` varchar(200) DEFAULT NULL COMMENT '主页型应用url',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`),
+  `wx_agentid` varchar(200) default NULL COMMENT '应用ID(微信)',
+  `agent_name` varchar(200) default NULL COMMENT '应用名称',
+  `token` varchar(50) default NULL COMMENT '回调token',
+  `encodingAESKey` varchar(100) default NULL COMMENT '回调EncodingAESKey',
+  `square_logo_url` varchar(200) default NULL COMMENT '方形头像',
+  `round_logo_url` varchar(200) default NULL COMMENT '圆形头像',
+  `logo_mediaid` varchar(100) default NULL COMMENT '头像mediaid',
+  `description` varchar(200) default NULL COMMENT '描述',
+  `close_status` varchar(200) default NULL COMMENT '是否被禁用',
+  `redirect_domain` varchar(200) default NULL COMMENT '可信域名',
+  `report_location_flag` varchar(2) default NULL COMMENT '是否打开地理位置上报 0：不上报；1：进入会话上报；2：持续上报',
+  `isreportuser` varchar(2) default NULL COMMENT '是否接收用户变更通知。0：不接收；1：接收',
+  `isreportenter` varchar(2) default NULL COMMENT '是否上报用户进入应用事件。0：不接收；1：接收',
+  `app_type` varchar(2) default NULL COMMENT '应用类型。1：消息型；2：主页型',
+  `home_url` varchar(200) default NULL COMMENT '主页型应用url',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`),
   UNIQUE KEY `uniq_accountid_appid` (`account_id`,`wx_agentid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='应用信息表';
 
@@ -1182,18 +1182,18 @@ INSERT INTO `qywx_agent` VALUES ('DC46552CD5AE4DF2AE12680C4636C9BA', '402880a947
 DROP TABLE IF EXISTS `qywx_autoresponse`;
 CREATE TABLE `qywx_autoresponse` (
   `id` varchar(100) NOT NULL,
-  `key_word` varchar(200) DEFAULT NULL COMMENT '关键字',
-  `res_content` varchar(500) DEFAULT NULL COMMENT '回复内容',
-  `msg_type` varchar(100) DEFAULT NULL COMMENT '消息类型',
-  `template_name` varchar(100) DEFAULT NULL COMMENT '模板名称',
-  `accountid` varchar(100) DEFAULT NULL COMMENT '微信账号id',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`),
+  `key_word` varchar(200) default NULL COMMENT '关键字',
+  `res_content` varchar(500) default NULL COMMENT '回复内容',
+  `msg_type` varchar(100) default NULL COMMENT '消息类型',
+  `template_name` varchar(100) default NULL COMMENT '模板名称',
+  `accountid` varchar(100) default NULL COMMENT '微信账号id',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`),
   KEY `idx_accountid` (`accountid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='关键字管理';
 
@@ -1213,16 +1213,16 @@ CREATE TABLE `qywx_autoresponse_default` (
   `id` varchar(50) NOT NULL COMMENT '主键Id',
   `templatename` varchar(200) NOT NULL COMMENT '模板名称',
   `templateid` varchar(50) NOT NULL COMMENT '模板Id',
-  `msgtype` varchar(40) DEFAULT NULL COMMENT '消息类型',
-  `accountid` varchar(40) DEFAULT NULL COMMENT '微信账号Id',
-  `iswork` varchar(10) DEFAULT NULL COMMENT '是否启用',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`)
+  `msgtype` varchar(40) default NULL COMMENT '消息类型',
+  `accountid` varchar(40) default NULL COMMENT '微信账号Id',
+  `iswork` varchar(10) default NULL COMMENT '是否启用',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='默认关键字回复';
 
 -- ----------------------------
@@ -1236,14 +1236,14 @@ INSERT INTO `qywx_autoresponse_default` VALUES ('8a792db34fdf51b3014fdfb22e87004
 DROP TABLE IF EXISTS `qywx_conversation`;
 CREATE TABLE `qywx_conversation` (
   `ID` varchar(50) NOT NULL,
-  `TITLE` varchar(200) DEFAULT NULL,
-  `USERNAMELIST` varchar(2000) DEFAULT NULL,
-  `USERIDLIST` varchar(2000) DEFAULT NULL,
-  `STATUS` int(2) DEFAULT NULL,
-  `MANAGERID` varchar(50) DEFAULT NULL,
-  `CHATID` varchar(100) DEFAULT NULL,
-  `MANAGERNAME` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `TITLE` varchar(200) default NULL,
+  `USERNAMELIST` varchar(2000) default NULL,
+  `USERIDLIST` varchar(2000) default NULL,
+  `STATUS` int(2) default NULL,
+  `MANAGERID` varchar(50) default NULL,
+  `CHATID` varchar(100) default NULL,
+  `MANAGERNAME` varchar(50) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -1257,17 +1257,17 @@ INSERT INTO `qywx_conversation` VALUES ('725105D1D71948499B1CB7FFE465011A', '会
 DROP TABLE IF EXISTS `qywx_group`;
 CREATE TABLE `qywx_group` (
   `id` varchar(100) NOT NULL COMMENT '部门Id',
-  `name` varchar(200) DEFAULT NULL COMMENT '部门名称',
-  `parentid` varchar(100) DEFAULT NULL COMMENT '上级部门Id',
-  `accountid` varchar(100) DEFAULT NULL COMMENT '微信账号ID',
-  `orders` varchar(11) DEFAULT NULL,
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`)
+  `name` varchar(200) default NULL COMMENT '部门名称',
+  `parentid` varchar(100) default NULL COMMENT '上级部门Id',
+  `accountid` varchar(100) default NULL COMMENT '微信账号ID',
+  `orders` varchar(11) default NULL,
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='关注用户组';
 
 -- ----------------------------
@@ -1283,18 +1283,18 @@ INSERT INTO `qywx_group` VALUES ('8C3E0E85D3134B99BB15D4E16F5AFF36', '财务室'
 DROP TABLE IF EXISTS `qywx_gzentity`;
 CREATE TABLE `qywx_gzentity` (
   `id` varchar(100) NOT NULL,
-  `template_name` varchar(100) DEFAULT NULL COMMENT '模板名称',
-  `template_id` varchar(100) DEFAULT NULL COMMENT '模板id',
-  `template_type` varchar(100) DEFAULT NULL COMMENT '类型 文本_text,图文_news',
-  `is_work` varchar(100) DEFAULT NULL COMMENT '是否启用 未启用_0,启用_1',
-  `accountid` varchar(100) DEFAULT NULL COMMENT '微信账号id',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`)
+  `template_name` varchar(100) default NULL COMMENT '模板名称',
+  `template_id` varchar(100) default NULL COMMENT '模板id',
+  `template_type` varchar(100) default NULL COMMENT '类型 文本_text,图文_news',
+  `is_work` varchar(100) default NULL COMMENT '是否启用 未启用_0,启用_1',
+  `accountid` varchar(100) default NULL COMMENT '微信账号id',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='关注回复';
 
 -- ----------------------------
@@ -1308,27 +1308,27 @@ INSERT INTO `qywx_gzentity` VALUES ('8a792db34fdf51b3014fdfa74adf0034', '图文�
 -- ----------------------------
 DROP TABLE IF EXISTS `qywx_gzuserinfo`;
 CREATE TABLE `qywx_gzuserinfo` (
-  `id` varchar(100) CHARACTER SET gbk NOT NULL COMMENT '主键',
-  `userid` varchar(100) DEFAULT NULL COMMENT '账号',
-  `name` varchar(100) DEFAULT NULL COMMENT '姓名',
-  `department` varchar(200) DEFAULT NULL COMMENT '部门',
-  `position` varchar(100) DEFAULT NULL COMMENT '职位',
-  `mobile` varchar(100) DEFAULT NULL COMMENT '电话',
-  `province` varchar(100) DEFAULT NULL COMMENT '省份',
-  `gender` varchar(100) DEFAULT NULL COMMENT '性别gender=1表示男，=0表示女',
-  `email` varchar(400) DEFAULT NULL COMMENT '邮箱',
-  `weixinid` varchar(100) DEFAULT NULL COMMENT '微信号',
-  `avatar` varchar(100) DEFAULT NULL COMMENT '头像url',
-  `subscribe_status` varchar(100) DEFAULT NULL COMMENT '关注状态: 1=已关注，2=已冻结，4=未关注',
-  `subscribe_time` datetime DEFAULT NULL COMMENT '关注时间',
-  `accountid` varchar(100) DEFAULT NULL COMMENT '微信账号ID',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`)
+  `id` varchar(100) character set gbk NOT NULL COMMENT '主键',
+  `userid` varchar(100) default NULL COMMENT '账号',
+  `name` varchar(100) default NULL COMMENT '姓名',
+  `department` varchar(200) default NULL COMMENT '部门',
+  `position` varchar(100) default NULL COMMENT '职位',
+  `mobile` varchar(100) default NULL COMMENT '电话',
+  `province` varchar(100) default NULL COMMENT '省份',
+  `gender` varchar(100) default NULL COMMENT '性别gender=1表示男，=0表示女',
+  `email` varchar(400) default NULL COMMENT '邮箱',
+  `weixinid` varchar(100) default NULL COMMENT '微信号',
+  `avatar` varchar(100) default NULL COMMENT '头像url',
+  `subscribe_status` varchar(100) default NULL COMMENT '关注状态: 1=已关注，2=已冻结，4=未关注',
+  `subscribe_time` datetime default NULL COMMENT '关注时间',
+  `accountid` varchar(100) default NULL COMMENT '微信账号ID',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='关注用户';
 
 -- ----------------------------
@@ -1343,13 +1343,13 @@ DROP TABLE IF EXISTS `qywx_location`;
 CREATE TABLE `qywx_location` (
   `id` varchar(32) NOT NULL COMMENT 'id',
   `corpid` varchar(64) NOT NULL COMMENT '企业号corpId',
-  `userid` varchar(64) DEFAULT NULL COMMENT ' 	成员UserID ',
-  `createtime` datetime DEFAULT NULL COMMENT '创建时间',
-  `latitude` varchar(64) DEFAULT NULL COMMENT '地理位置纬度',
-  `longitude` varchar(64) DEFAULT NULL COMMENT '地理位置径度',
-  `precision` varchar(64) DEFAULT NULL COMMENT '地理位置精度',
-  `agentid` int(32) DEFAULT NULL COMMENT '企业应用id',
-  `location_precision` varchar(100) DEFAULT NULL
+  `userid` varchar(64) default NULL COMMENT ' 	成员UserID ',
+  `createtime` datetime default NULL COMMENT '创建时间',
+  `latitude` varchar(64) default NULL COMMENT '地理位置纬度',
+  `longitude` varchar(64) default NULL COMMENT '地理位置径度',
+  `precision` varchar(64) default NULL COMMENT '地理位置精度',
+  `agentid` int(32) default NULL COMMENT '企业应用id',
+  `location_precision` varchar(100) default NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='地理位置表';
 
 -- ----------------------------
@@ -1364,24 +1364,24 @@ INSERT INTO `qywx_location` VALUES ('BF3219EA3F2840938BDA4FDE703A5E36', 'wx967db
 DROP TABLE IF EXISTS `qywx_menu`;
 CREATE TABLE `qywx_menu` (
   `ID` varchar(32) NOT NULL,
-  `agent_id` varchar(255) DEFAULT NULL COMMENT '应用主键ID',
-  `menu_name` varchar(255) DEFAULT NULL COMMENT '菜单标题',
-  `menu_type` varchar(255) DEFAULT NULL COMMENT '菜单类型',
-  `menu_key` varchar(255) DEFAULT NULL COMMENT '菜单KEY',
-  `orders` varchar(10) DEFAULT NULL COMMENT '菜单位置',
-  `msg_type` varchar(255) DEFAULT NULL COMMENT '响应消息类型',
-  `template_id` varchar(255) DEFAULT NULL COMMENT '关联素材ID',
-  `url` varchar(1000) DEFAULT NULL COMMENT '网页链接',
-  `father_id` varchar(32) DEFAULT NULL COMMENT '父ID',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`ID`),
-  KEY `menu_key` (`menu_key`) USING BTREE,
-  KEY `order` (`orders`) USING BTREE
+  `agent_id` varchar(255) default NULL COMMENT '应用主键ID',
+  `menu_name` varchar(255) default NULL COMMENT '菜单标题',
+  `menu_type` varchar(255) default NULL COMMENT '菜单类型',
+  `menu_key` varchar(255) default NULL COMMENT '菜单KEY',
+  `orders` varchar(10) default NULL COMMENT '菜单位置',
+  `msg_type` varchar(255) default NULL COMMENT '响应消息类型',
+  `template_id` varchar(255) default NULL COMMENT '关联素材ID',
+  `url` varchar(1000) default NULL COMMENT '网页链接',
+  `father_id` varchar(32) default NULL COMMENT '父ID',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`ID`),
+  KEY `menu_key` (`menu_key`),
+  KEY `order` (`orders`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='自定义菜单表';
 
 -- ----------------------------
@@ -1400,14 +1400,14 @@ INSERT INTO `qywx_menu` VALUES ('D7837CB701E845F6B5557AFACCDB2B98', '1', 'OA办�
 DROP TABLE IF EXISTS `qywx_messagelog`;
 CREATE TABLE `qywx_messagelog` (
   `id` varchar(32) NOT NULL,
-  `wx_agent_id` int(11) DEFAULT NULL COMMENT '应用id',
-  `topartys_id` varchar(64) DEFAULT NULL COMMENT '部门id',
-  `message_type` varchar(32) DEFAULT NULL COMMENT '消息类型',
+  `wx_agent_id` int(11) default NULL COMMENT '应用id',
+  `topartys_id` varchar(64) default NULL COMMENT '部门id',
+  `message_type` varchar(32) default NULL COMMENT '消息类型',
   `message_content` text COMMENT '文本内容',
-  `content_id` varchar(64) DEFAULT NULL COMMENT '内容id',
-  `receive_message` varchar(300) DEFAULT NULL COMMENT '消息状态',
-  `create_date` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `content_id` varchar(64) default NULL COMMENT '内容id',
+  `receive_message` varchar(300) default NULL COMMENT '消息状态',
+  `create_date` datetime default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -1421,22 +1421,22 @@ INSERT INTO `qywx_messagelog` VALUES ('41EEAB4A2C0D4E9B95228A526D50CEAA', '4', '
 DROP TABLE IF EXISTS `qywx_newsitem`;
 CREATE TABLE `qywx_newsitem` (
   `id` varchar(100) NOT NULL,
-  `title` varchar(300) DEFAULT NULL COMMENT '标题',
-  `author` varchar(100) DEFAULT NULL COMMENT '作者',
-  `image_path` varchar(100) DEFAULT NULL COMMENT '图片路径',
+  `title` varchar(300) default NULL COMMENT '标题',
+  `author` varchar(100) default NULL COMMENT '作者',
+  `image_path` varchar(100) default NULL COMMENT '图片路径',
   `content` longtext COMMENT '内容',
-  `templateid` varchar(100) DEFAULT NULL COMMENT '图文模板id',
-  `description` varchar(400) DEFAULT NULL COMMENT '摘要',
-  `order_no` varchar(100) DEFAULT NULL COMMENT '新闻顺序',
-  `url` varchar(100) DEFAULT NULL COMMENT '消息内容的url',
-  `hdid` varchar(100) DEFAULT NULL COMMENT '活动id',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`)
+  `templateid` varchar(100) default NULL COMMENT '图文模板id',
+  `description` varchar(400) default NULL COMMENT '摘要',
+  `order_no` varchar(100) default NULL COMMENT '新闻顺序',
+  `url` varchar(100) default NULL COMMENT '消息内容的url',
+  `hdid` varchar(100) default NULL COMMENT '活动id',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='图文素材新闻';
 
 -- ----------------------------
@@ -1455,16 +1455,16 @@ INSERT INTO `qywx_newsitem` VALUES ('ff808081538e81b40153a17b319a0076', 'sss', '
 DROP TABLE IF EXISTS `qywx_newstemplate`;
 CREATE TABLE `qywx_newstemplate` (
   `id` varchar(100) NOT NULL,
-  `template_name` varchar(200) DEFAULT NULL COMMENT '模板名称',
-  `template_type` varchar(100) DEFAULT NULL COMMENT '模板类型',
-  `accountid` varchar(100) DEFAULT NULL COMMENT '微信企业号账号id',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`)
+  `template_name` varchar(200) default NULL COMMENT '模板名称',
+  `template_type` varchar(100) default NULL COMMENT '模板类型',
+  `accountid` varchar(100) default NULL COMMENT '微信企业号账号id',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='图文素材模板';
 
 -- ----------------------------
@@ -1480,23 +1480,23 @@ DROP TABLE IF EXISTS `qywx_receivetext`;
 CREATE TABLE `qywx_receivetext` (
   `id` varchar(100) NOT NULL,
   `tousername` varchar(100) NOT NULL COMMENT '开发者微信号',
-  `fromusername` varchar(100) DEFAULT NULL COMMENT '发送方帐号（一个OpenID）',
-  `createtime` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '消息创建时间 （整型）',
-  `msgtype` varchar(100) DEFAULT NULL COMMENT '消息类型（text/image/location/link）',
-  `msgid` varchar(100) DEFAULT NULL COMMENT '消息id，64位整型',
-  `content` varchar(400) DEFAULT NULL COMMENT '消息内容',
-  `response` varchar(10) DEFAULT NULL COMMENT '是否回复',
-  `rescontent` varchar(400) DEFAULT NULL COMMENT '回复内容',
-  `nickname` varchar(100) DEFAULT NULL COMMENT '用户昵称',
-  `accountid` varchar(40) DEFAULT NULL COMMENT '微信账号Id',
-  `agent_id` varchar(200) DEFAULT NULL COMMENT '应用ID(微信)',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`)
+  `fromusername` varchar(100) default NULL COMMENT '发送方帐号（一个OpenID）',
+  `createtime` timestamp NULL default CURRENT_TIMESTAMP COMMENT '消息创建时间 （整型）',
+  `msgtype` varchar(100) default NULL COMMENT '消息类型（text/image/location/link）',
+  `msgid` varchar(100) default NULL COMMENT '消息id，64位整型',
+  `content` varchar(400) default NULL COMMENT '消息内容',
+  `response` varchar(10) default NULL COMMENT '是否回复',
+  `rescontent` varchar(400) default NULL COMMENT '回复内容',
+  `nickname` varchar(100) default NULL COMMENT '用户昵称',
+  `accountid` varchar(40) default NULL COMMENT '微信账号Id',
+  `agent_id` varchar(200) default NULL COMMENT '应用ID(微信)',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文本消息';
 
 -- ----------------------------
@@ -1519,14 +1519,14 @@ CREATE TABLE `qywx_texttemplate` (
   `id` varchar(100) NOT NULL,
   `template_name` varchar(200) NOT NULL COMMENT '模板名称',
   `template_content` varchar(500) NOT NULL COMMENT '模板内容',
-  `accountid` varchar(100) DEFAULT NULL COMMENT '微信企业账户id',
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_by` varchar(50) DEFAULT NULL COMMENT '创建人登录名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '更新人名称',
-  `update_by` varchar(50) DEFAULT NULL COMMENT '更新人登录名称',
-  `update_date` datetime DEFAULT NULL COMMENT '更新日期',
-  PRIMARY KEY (`id`)
+  `accountid` varchar(100) default NULL COMMENT '微信企业账户id',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_by` varchar(50) default NULL COMMENT '创建人登录名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '更新人名称',
+  `update_by` varchar(50) default NULL COMMENT '更新人登录名称',
+  `update_date` datetime default NULL COMMENT '更新日期',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文本模板';
 
 -- ----------------------------
@@ -1543,23 +1543,23 @@ INSERT INTO `qywx_texttemplate` VALUES ('F65B42281D1E46E69FBEAEEC43587F6D', 'nih
 DROP TABLE IF EXISTS `t_finance`;
 CREATE TABLE `t_finance` (
   `ID` varchar(32) NOT NULL,
-  `APPROFILETYPE` varchar(255) DEFAULT NULL,
-  `BUYMONEY` float DEFAULT NULL,
-  `BUYPROJECTNO` varchar(255) DEFAULT NULL,
-  `BUYPROJECTORG` varchar(255) DEFAULT NULL,
-  `BUYUSE` varchar(255) DEFAULT NULL,
-  `BUYYEAR` varchar(255) DEFAULT NULL,
-  `CATEGORY` varchar(255) DEFAULT NULL,
-  `COLLECTORG` varchar(255) DEFAULT NULL,
-  `EXPENSEACCOUNT` varchar(255) DEFAULT NULL,
-  `HAPPENYEAR` int(11) DEFAULT NULL,
-  `MONEYAREA` varchar(255) DEFAULT NULL,
-  `MONEYSOURCE` varchar(255) DEFAULT NULL,
-  `MONEYTOTAL` float DEFAULT NULL,
-  `MONEYUSE` varchar(255) DEFAULT NULL,
-  `PAYTIME` datetime DEFAULT NULL,
-  `ZBWNO` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `APPROFILETYPE` varchar(255) default NULL,
+  `BUYMONEY` float default NULL,
+  `BUYPROJECTNO` varchar(255) default NULL,
+  `BUYPROJECTORG` varchar(255) default NULL,
+  `BUYUSE` varchar(255) default NULL,
+  `BUYYEAR` varchar(255) default NULL,
+  `CATEGORY` varchar(255) default NULL,
+  `COLLECTORG` varchar(255) default NULL,
+  `EXPENSEACCOUNT` varchar(255) default NULL,
+  `HAPPENYEAR` int(11) default NULL,
+  `MONEYAREA` varchar(255) default NULL,
+  `MONEYSOURCE` varchar(255) default NULL,
+  `MONEYTOTAL` float default NULL,
+  `MONEYUSE` varchar(255) default NULL,
+  `PAYTIME` datetime default NULL,
+  `ZBWNO` varchar(255) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -1578,8 +1578,8 @@ INSERT INTO `t_finance` VALUES ('4028948151dc770f0151dc7e8b100003', null, null, 
 DROP TABLE IF EXISTS `t_finance_files`;
 CREATE TABLE `t_finance_files` (
   `id` varchar(32) NOT NULL,
-  `financeId` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  `financeId` varchar(32) default NULL,
+  PRIMARY KEY  (`id`),
   KEY `FK_ij2p74feypwcda4n0n96pyd10` (`financeId`),
   KEY `FK_28m7vvi0cy5r5keke68b6f7rt` (`id`),
   CONSTRAINT `FK_28m7vvi0cy5r5keke68b6f7rt` FOREIGN KEY (`id`) REFERENCES `t_s_attachment` (`ID`),
@@ -1597,18 +1597,18 @@ DROP TABLE IF EXISTS `t_s_attachment`;
 CREATE TABLE `t_s_attachment` (
   `ID` varchar(32) NOT NULL,
   `attachmentcontent` longblob,
-  `attachmenttitle` varchar(100) DEFAULT NULL,
-  `businesskey` varchar(32) DEFAULT NULL,
-  `createdate` datetime DEFAULT NULL,
-  `extend` varchar(32) DEFAULT NULL,
+  `attachmenttitle` varchar(100) default NULL,
+  `businesskey` varchar(32) default NULL,
+  `createdate` datetime default NULL,
+  `extend` varchar(32) default NULL,
   `note` longtext,
-  `realpath` varchar(100) DEFAULT NULL,
+  `realpath` varchar(100) default NULL,
   `subclassname` longtext,
   `swfpath` longtext,
-  `BUSENTITYNAME` varchar(100) DEFAULT NULL,
-  `INFOTYPEID` varchar(32) DEFAULT NULL,
-  `USERID` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
+  `BUSENTITYNAME` varchar(100) default NULL,
+  `INFOTYPEID` varchar(32) default NULL,
+  `USERID` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`),
   KEY `FK_mnq23hlc835n4ufgjl7nkn3bd` (`USERID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1639,16 +1639,16 @@ INSERT INTO `t_s_attachment` VALUES ('4028948151dc770f0151dc7e8e8b0009', null, '
 DROP TABLE IF EXISTS `t_s_base_user`;
 CREATE TABLE `t_s_base_user` (
   `ID` varchar(32) NOT NULL,
-  `activitiSync` smallint(6) DEFAULT NULL,
-  `browser` varchar(20) DEFAULT NULL,
-  `password` varchar(100) DEFAULT NULL,
-  `realname` varchar(50) DEFAULT NULL,
+  `activitiSync` smallint(6) default NULL,
+  `browser` varchar(20) default NULL,
+  `password` varchar(100) default NULL,
+  `realname` varchar(50) default NULL,
   `signature` blob,
-  `status` smallint(6) DEFAULT NULL,
-  `userkey` varchar(200) DEFAULT NULL,
+  `status` smallint(6) default NULL,
+  `userkey` varchar(200) default NULL,
   `username` varchar(10) NOT NULL,
-  `departid` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
+  `departid` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`),
   KEY `FK_15jh1g4iem1857546ggor42et` (`departid`),
   CONSTRAINT `FK_15jh1g4iem1857546ggor42et` FOREIGN KEY (`departid`) REFERENCES `t_s_depart` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1669,12 +1669,12 @@ INSERT INTO `t_s_base_user` VALUES ('4028d881436d514601436d5215bc0046', '1', nul
 DROP TABLE IF EXISTS `t_s_config`;
 CREATE TABLE `t_s_config` (
   `ID` varchar(32) NOT NULL,
-  `code` varchar(100) DEFAULT NULL,
+  `code` varchar(100) default NULL,
   `content` longtext,
   `name` varchar(100) NOT NULL,
   `note` longtext,
-  `userid` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
+  `userid` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`),
   KEY `FK_m3q8r50ror4fl7fjkvd82tqgn` (`userid`),
   CONSTRAINT `FK_m3q8r50ror4fl7fjkvd82tqgn` FOREIGN KEY (`userid`) REFERENCES `t_s_user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1690,11 +1690,11 @@ DROP TABLE IF EXISTS `t_s_demo`;
 CREATE TABLE `t_s_demo` (
   `ID` varchar(32) NOT NULL,
   `democode` longtext,
-  `demoorder` smallint(6) DEFAULT NULL,
-  `demotitle` varchar(200) DEFAULT NULL,
-  `demourl` varchar(200) DEFAULT NULL,
-  `demopid` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
+  `demoorder` smallint(6) default NULL,
+  `demotitle` varchar(200) default NULL,
+  `demourl` varchar(200) default NULL,
+  `demopid` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`),
   KEY `FK_fni8e3v88wcf2sahhlv57u4nm` (`demopid`),
   CONSTRAINT `FK_fni8e3v88wcf2sahhlv57u4nm` FOREIGN KEY (`demopid`) REFERENCES `t_s_demo` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1712,8 +1712,8 @@ CREATE TABLE `t_s_depart` (
   `ID` varchar(32) NOT NULL,
   `departname` varchar(100) NOT NULL,
   `description` longtext,
-  `parentdepartid` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
+  `parentdepartid` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`),
   KEY `FK_knnm3wb0bembwvm0il7tf6686` (`parentdepartid`),
   CONSTRAINT `FK_knnm3wb0bembwvm0il7tf6686` FOREIGN KEY (`parentdepartid`) REFERENCES `t_s_depart` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1730,13 +1730,13 @@ INSERT INTO `t_s_depart` VALUES ('4028d881436d514601436d5214f30017', '研发室'
 -- ----------------------------
 DROP TABLE IF EXISTS `t_s_document`;
 CREATE TABLE `t_s_document` (
-  `documentstate` smallint(6) DEFAULT NULL,
-  `documenttitle` varchar(100) DEFAULT NULL,
+  `documentstate` smallint(6) default NULL,
+  `documenttitle` varchar(100) default NULL,
   `pictureindex` blob,
-  `showhome` smallint(6) DEFAULT NULL,
+  `showhome` smallint(6) default NULL,
   `id` varchar(32) NOT NULL,
-  `typeid` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  `typeid` varchar(32) default NULL,
+  PRIMARY KEY  (`id`),
   KEY `FK_qr3qlmgkflj35m5ci1xv0vvg3` (`typeid`),
   KEY `FK_f2mc12eu0umghp2i70apmtxjl` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1904,11 +1904,11 @@ INSERT INTO `t_s_document` VALUES (null, null, null, null, '4028d88147359f510147
 DROP TABLE IF EXISTS `t_s_fileno`;
 CREATE TABLE `t_s_fileno` (
   `ID` varchar(32) NOT NULL,
-  `filenobefore` varchar(32) DEFAULT NULL,
-  `filenonum` int(11) DEFAULT NULL,
-  `filenotype` varchar(32) DEFAULT NULL,
-  `filenoYear` date DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `filenobefore` varchar(32) default NULL,
+  `filenonum` int(11) default NULL,
+  `filenotype` varchar(32) default NULL,
+  `filenoYear` date default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -1921,15 +1921,15 @@ CREATE TABLE `t_s_fileno` (
 DROP TABLE IF EXISTS `t_s_function`;
 CREATE TABLE `t_s_function` (
   `ID` varchar(32) NOT NULL,
-  `functioniframe` smallint(6) DEFAULT NULL,
-  `functionlevel` smallint(6) DEFAULT NULL,
+  `functioniframe` smallint(6) default NULL,
+  `functionlevel` smallint(6) default NULL,
   `functionname` varchar(50) NOT NULL,
-  `functionorder` varchar(255) DEFAULT NULL,
-  `functionurl` varchar(100) DEFAULT NULL,
-  `parentfunctionid` varchar(32) DEFAULT NULL,
-  `iconid` varchar(32) DEFAULT NULL,
-  `desk_iconid` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
+  `functionorder` varchar(255) default NULL,
+  `functionurl` varchar(100) default NULL,
+  `parentfunctionid` varchar(32) default NULL,
+  `iconid` varchar(32) default NULL,
+  `desk_iconid` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`),
   KEY `FK_brd7b3keorj8pmxcv8bpahnxp` (`parentfunctionid`),
   KEY `FK_q5tqo3v4ltsp1pehdxd59rccx` (`iconid`),
   KEY `FK_gbdacaoju6d5u53rp4jo4rbs9` (`desk_iconid`),
@@ -2047,13 +2047,13 @@ INSERT INTO `t_s_function` VALUES ('4028ef8156b0c68f0156b0d4cf390045', null, '0'
 DROP TABLE IF EXISTS `t_s_icon`;
 CREATE TABLE `t_s_icon` (
   `ID` varchar(32) NOT NULL,
-  `extend` varchar(255) DEFAULT NULL,
-  `iconclas` varchar(200) DEFAULT NULL,
+  `extend` varchar(255) default NULL,
+  `iconclas` varchar(200) default NULL,
   `content` blob,
   `name` varchar(100) NOT NULL,
   `path` longtext,
-  `type` smallint(6) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `type` smallint(6) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -2074,14 +2074,14 @@ INSERT INTO `t_s_icon` VALUES ('4028d881436d514601436d5214ba0007', 'png', 'folde
 DROP TABLE IF EXISTS `t_s_log`;
 CREATE TABLE `t_s_log` (
   `ID` varchar(32) NOT NULL,
-  `broswer` varchar(100) DEFAULT NULL,
+  `broswer` varchar(100) default NULL,
   `logcontent` longtext NOT NULL,
-  `loglevel` smallint(6) DEFAULT NULL,
+  `loglevel` smallint(6) default NULL,
   `note` longtext,
   `operatetime` datetime NOT NULL,
-  `operatetype` smallint(6) DEFAULT NULL,
-  `userid` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
+  `operatetype` smallint(6) default NULL,
+  `userid` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`),
   KEY `FK_oe64k4852uylhyc5a00rfwtay` (`userid`),
   CONSTRAINT `FK_oe64k4852uylhyc5a00rfwtay` FOREIGN KEY (`userid`) REFERENCES `t_s_user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -2471,13 +2471,13 @@ INSERT INTO `t_s_log` VALUES ('4028ef8156b143e40156b1446e0c0000', 'Chrome', '用
 DROP TABLE IF EXISTS `t_s_operation`;
 CREATE TABLE `t_s_operation` (
   `ID` varchar(32) NOT NULL,
-  `operationcode` varchar(50) DEFAULT NULL,
-  `operationicon` varchar(100) DEFAULT NULL,
-  `operationname` varchar(50) DEFAULT NULL,
-  `status` smallint(6) DEFAULT NULL,
-  `functionid` varchar(32) DEFAULT NULL,
-  `iconid` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
+  `operationcode` varchar(50) default NULL,
+  `operationicon` varchar(100) default NULL,
+  `operationname` varchar(50) default NULL,
+  `status` smallint(6) default NULL,
+  `functionid` varchar(32) default NULL,
+  `iconid` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`),
   KEY `FK_pceuy41wr2fjbcilyc7mk3m1f` (`functionid`),
   KEY `FK_ny5de7922l39ta2pkhyspd5f` (`iconid`),
   CONSTRAINT `FK_ny5de7922l39ta2pkhyspd5f` FOREIGN KEY (`iconid`) REFERENCES `t_s_icon` (`ID`),
@@ -2500,8 +2500,8 @@ INSERT INTO `t_s_operation` VALUES ('4028d881436d514601436d52167f006c', 'szqm', 
 DROP TABLE IF EXISTS `t_s_opintemplate`;
 CREATE TABLE `t_s_opintemplate` (
   `ID` varchar(32) NOT NULL,
-  `descript` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `descript` varchar(100) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -2514,9 +2514,9 @@ CREATE TABLE `t_s_opintemplate` (
 DROP TABLE IF EXISTS `t_s_role`;
 CREATE TABLE `t_s_role` (
   `ID` varchar(32) NOT NULL,
-  `rolecode` varchar(10) DEFAULT NULL,
+  `rolecode` varchar(10) default NULL,
   `rolename` varchar(100) NOT NULL,
-  PRIMARY KEY (`ID`)
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -2532,10 +2532,10 @@ INSERT INTO `t_s_role` VALUES ('4028d881436d514601436d5215a00042', 'manager', '�
 DROP TABLE IF EXISTS `t_s_role_function`;
 CREATE TABLE `t_s_role_function` (
   `ID` varchar(32) NOT NULL,
-  `operation` varchar(100) DEFAULT NULL,
-  `functionid` varchar(32) DEFAULT NULL,
-  `roleid` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
+  `operation` varchar(100) default NULL,
+  `functionid` varchar(32) default NULL,
+  `roleid` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`),
   KEY `FK_fvsillj2cxyk5thnuu625urab` (`functionid`),
   KEY `FK_9dww3p4w8jwvlrgwhpitsbfif` (`roleid`),
   CONSTRAINT `FK_9dww3p4w8jwvlrgwhpitsbfif` FOREIGN KEY (`roleid`) REFERENCES `t_s_role` (`ID`),
@@ -2644,9 +2644,9 @@ INSERT INTO `t_s_role_function` VALUES ('4028ef8156b0d8e00156b0dcdd720020', null
 DROP TABLE IF EXISTS `t_s_role_user`;
 CREATE TABLE `t_s_role_user` (
   `ID` varchar(32) NOT NULL,
-  `roleid` varchar(32) DEFAULT NULL,
-  `userid` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
+  `roleid` varchar(32) default NULL,
+  `userid` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`),
   KEY `FK_n2ucxeorvpjy7qhnmuem01kbx` (`roleid`),
   KEY `FK_d4qb5xld2pfb0bkjx9iwtolda` (`userid`),
   CONSTRAINT `FK_d4qb5xld2pfb0bkjx9iwtolda` FOREIGN KEY (`userid`) REFERENCES `t_s_user` (`id`),
@@ -2669,10 +2669,10 @@ INSERT INTO `t_s_role_user` VALUES ('4028ef8153f4151f0153f423b228000b', '4028d88
 DROP TABLE IF EXISTS `t_s_student`;
 CREATE TABLE `t_s_student` (
   `ID` varchar(32) NOT NULL,
-  `classname` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `sex` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `classname` varchar(255) default NULL,
+  `name` varchar(255) default NULL,
+  `sex` varchar(255) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -2715,12 +2715,12 @@ CREATE TABLE `t_s_territory` (
   `territorycode` varchar(10) NOT NULL,
   `territorylevel` smallint(6) NOT NULL,
   `territoryname` varchar(50) NOT NULL,
-  `territory_pinyin` varchar(40) DEFAULT NULL,
+  `territory_pinyin` varchar(40) default NULL,
   `territorysort` varchar(3) NOT NULL,
   `x_wgs84` double NOT NULL,
   `y_wgs84` double NOT NULL,
-  `territoryparentid` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `territoryparentid` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3032,18 +3032,18 @@ INSERT INTO `t_s_territory` VALUES ('999', '370902', '4', '泰山区', 'TSQ', '0
 DROP TABLE IF EXISTS `t_s_timetask`;
 CREATE TABLE `t_s_timetask` (
   `ID` varchar(32) NOT NULL,
-  `CREATE_BY` varchar(32) DEFAULT NULL,
-  `CREATE_DATE` datetime DEFAULT NULL,
-  `CREATE_NAME` varchar(32) DEFAULT NULL,
+  `CREATE_BY` varchar(32) default NULL,
+  `CREATE_DATE` datetime default NULL,
+  `CREATE_NAME` varchar(32) default NULL,
   `CRON_EXPRESSION` varchar(100) NOT NULL,
   `IS_EFFECT` varchar(1) NOT NULL,
   `IS_START` varchar(1) NOT NULL,
   `TASK_DESCRIBE` varchar(50) NOT NULL,
   `TASK_ID` varchar(100) NOT NULL,
-  `UPDATE_BY` varchar(32) DEFAULT NULL,
-  `UPDATE_DATE` datetime DEFAULT NULL,
-  `UPDATE_NAME` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `UPDATE_BY` varchar(32) default NULL,
+  `UPDATE_DATE` datetime default NULL,
+  `UPDATE_NAME` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3057,11 +3057,11 @@ INSERT INTO `t_s_timetask` VALUES ('4028ef8156b0d8e00156b1002aea0026', '4028d881
 DROP TABLE IF EXISTS `t_s_type`;
 CREATE TABLE `t_s_type` (
   `ID` varchar(32) NOT NULL,
-  `typecode` varchar(50) DEFAULT NULL,
-  `typename` varchar(50) DEFAULT NULL,
-  `typepid` varchar(32) DEFAULT NULL,
-  `typegroupid` varchar(32) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
+  `typecode` varchar(50) default NULL,
+  `typename` varchar(50) default NULL,
+  `typepid` varchar(32) default NULL,
+  `typegroupid` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`),
   KEY `FK_nw2b22gy7plh7pqows186odmq` (`typepid`),
   KEY `FK_3q40mr4ebtd0cvx79matl39x1` (`typegroupid`),
   CONSTRAINT `FK_3q40mr4ebtd0cvx79matl39x1` FOREIGN KEY (`typegroupid`) REFERENCES `t_s_typegroup` (`ID`),
@@ -3106,9 +3106,9 @@ INSERT INTO `t_s_type` VALUES ('4028d881436d514601436d52166a0068', '1', '女性'
 DROP TABLE IF EXISTS `t_s_typegroup`;
 CREATE TABLE `t_s_typegroup` (
   `ID` varchar(32) NOT NULL,
-  `typegroupcode` varchar(50) DEFAULT NULL,
-  `typegroupname` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `typegroupcode` varchar(50) default NULL,
+  `typegroupname` varchar(50) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3132,14 +3132,14 @@ INSERT INTO `t_s_typegroup` VALUES ('4028d881436d514601436d5215e90050', 'sex', '
 -- ----------------------------
 DROP TABLE IF EXISTS `t_s_user`;
 CREATE TABLE `t_s_user` (
-  `email` varchar(50) DEFAULT NULL,
-  `mobilePhone` varchar(30) DEFAULT NULL,
-  `officePhone` varchar(20) DEFAULT NULL,
-  `signatureFile` varchar(100) DEFAULT NULL,
+  `email` varchar(50) default NULL,
+  `mobilePhone` varchar(30) default NULL,
+  `officePhone` varchar(20) default NULL,
+  `signatureFile` varchar(100) default NULL,
   `id` varchar(32) NOT NULL,
-  `accountid` varchar(36) DEFAULT NULL,
-  `type` varchar(2) DEFAULT '1',
-  PRIMARY KEY (`id`),
+  `accountid` varchar(36) default NULL,
+  `type` varchar(2) default '1',
+  PRIMARY KEY  (`id`),
   KEY `FK_2cuji5h6yorrxgsr8ojndlmal` (`id`),
   CONSTRAINT `FK_2cuji5h6yorrxgsr8ojndlmal` FOREIGN KEY (`id`) REFERENCES `t_s_base_user` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -3160,11 +3160,11 @@ INSERT INTO `t_s_user` VALUES (null, null, null, null, '4028d881436d514601436d52
 DROP TABLE IF EXISTS `t_s_version`;
 CREATE TABLE `t_s_version` (
   `ID` varchar(32) NOT NULL,
-  `loginpage` varchar(100) DEFAULT NULL,
-  `versioncode` varchar(50) DEFAULT NULL,
-  `versionname` varchar(30) DEFAULT NULL,
-  `versionnum` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `loginpage` varchar(100) default NULL,
+  `versioncode` varchar(50) default NULL,
+  `versionname` varchar(30) default NULL,
+  `versionnum` varchar(20) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3177,10 +3177,10 @@ CREATE TABLE `t_s_version` (
 DROP TABLE IF EXISTS `weixin_accesstoken`;
 CREATE TABLE `weixin_accesstoken` (
   `ID` varchar(32) NOT NULL,
-  `access_token` varchar(255) DEFAULT NULL,
-  `addtime` datetime DEFAULT NULL,
-  `expires_ib` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `access_token` varchar(255) default NULL,
+  `addtime` datetime default NULL,
+  `expires_ib` int(11) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3193,23 +3193,23 @@ CREATE TABLE `weixin_accesstoken` (
 DROP TABLE IF EXISTS `weixin_account`;
 CREATE TABLE `weixin_account` (
   `id` varchar(36) NOT NULL COMMENT '主键',
-  `accountname` varchar(200) DEFAULT NULL COMMENT '公众帐号名称',
-  `accounttoken` varchar(200) DEFAULT NULL COMMENT '公众帐号TOKEN',
-  `accountnumber` varchar(200) DEFAULT NULL COMMENT '公众微信号',
-  `accounttype` varchar(50) DEFAULT NULL COMMENT '公众号类型',
-  `accountemail` varchar(200) DEFAULT NULL COMMENT '电子邮箱',
-  `accountdesc` varchar(500) DEFAULT NULL COMMENT '公众帐号描述',
-  `accountaccesstoken` varchar(1000) DEFAULT NULL COMMENT 'ACCESS_TOKEN',
-  `accountappid` varchar(200) DEFAULT NULL COMMENT '公众帐号APPID',
-  `accountappsecret` varchar(500) DEFAULT NULL COMMENT '公众帐号APPSECRET',
-  `ADDTOEKNTIME` datetime DEFAULT NULL,
-  `USERNAME` varchar(50) DEFAULT NULL,
-  `WEIXIN_ACCOUNTID` varchar(100) DEFAULT NULL,
-  `apiticket` varchar(200) DEFAULT NULL,
-  `apiticketttime` datetime DEFAULT NULL,
-  `jsapiticket` varchar(200) DEFAULT NULL,
-  `jsapitickettime` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `accountname` varchar(200) default NULL COMMENT '公众帐号名称',
+  `accounttoken` varchar(200) default NULL COMMENT '公众帐号TOKEN',
+  `accountnumber` varchar(200) default NULL COMMENT '公众微信号',
+  `accounttype` varchar(50) default NULL COMMENT '公众号类型',
+  `accountemail` varchar(200) default NULL COMMENT '电子邮箱',
+  `accountdesc` varchar(500) default NULL COMMENT '公众帐号描述',
+  `accountaccesstoken` varchar(1000) default NULL COMMENT 'ACCESS_TOKEN',
+  `accountappid` varchar(200) default NULL COMMENT '公众帐号APPID',
+  `accountappsecret` varchar(500) default NULL COMMENT '公众帐号APPSECRET',
+  `ADDTOEKNTIME` datetime default NULL,
+  `USERNAME` varchar(50) default NULL,
+  `WEIXIN_ACCOUNTID` varchar(100) default NULL,
+  `apiticket` varchar(200) default NULL,
+  `apiticketttime` datetime default NULL,
+  `jsapiticket` varchar(200) default NULL,
+  `jsapitickettime` datetime default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3223,13 +3223,13 @@ INSERT INTO `weixin_account` VALUES ('402881e8461795c201461795c2e90000', 'Jeewx�
 DROP TABLE IF EXISTS `weixin_autoresponse`;
 CREATE TABLE `weixin_autoresponse` (
   `ID` varchar(32) NOT NULL,
-  `addtime` varchar(255) DEFAULT NULL,
-  `keyword` varchar(255) DEFAULT NULL,
-  `msgtype` varchar(255) DEFAULT NULL,
-  `rescontent` varchar(255) DEFAULT NULL,
-  `templatename` varchar(255) DEFAULT NULL,
-  `accountid` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `addtime` varchar(255) default NULL,
+  `keyword` varchar(255) default NULL,
+  `msgtype` varchar(255) default NULL,
+  `rescontent` varchar(255) default NULL,
+  `templatename` varchar(255) default NULL,
+  `accountid` varchar(100) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3248,14 +3248,14 @@ INSERT INTO `weixin_autoresponse` VALUES ('f7a8a3a946e55a940146e5a656150055', '2
 DROP TABLE IF EXISTS `weixin_cms_ad`;
 CREATE TABLE `weixin_cms_ad` (
   `ID` varchar(36) NOT NULL,
-  `ACCOUNTID` varchar(100) DEFAULT NULL,
-  `CREATE_BY` varchar(255) DEFAULT NULL,
-  `CREATE_DATE` datetime DEFAULT NULL,
-  `CREATE_NAME` varchar(255) DEFAULT NULL,
-  `IMAGE_HREF` varchar(255) DEFAULT NULL,
-  `IMAGE_NAME` varchar(255) DEFAULT NULL,
-  `TITLE` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `ACCOUNTID` varchar(100) default NULL,
+  `CREATE_BY` varchar(255) default NULL,
+  `CREATE_DATE` datetime default NULL,
+  `CREATE_NAME` varchar(255) default NULL,
+  `IMAGE_HREF` varchar(255) default NULL,
+  `IMAGE_NAME` varchar(255) default NULL,
+  `TITLE` varchar(20) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3272,17 +3272,17 @@ INSERT INTO `weixin_cms_ad` VALUES ('402881e946ddea480146de0f3a810011', '402881e
 DROP TABLE IF EXISTS `weixin_cms_article`;
 CREATE TABLE `weixin_cms_article` (
   `id` varchar(36) NOT NULL COMMENT '主键',
-  `title` varchar(50) DEFAULT NULL COMMENT '标题',
-  `image_name` varchar(255) DEFAULT NULL COMMENT '图片名称',
-  `image_href` varchar(255) DEFAULT NULL COMMENT '图片地址',
-  `summary` varchar(255) DEFAULT NULL,
+  `title` varchar(50) default NULL COMMENT '标题',
+  `image_name` varchar(255) default NULL COMMENT '图片名称',
+  `image_href` varchar(255) default NULL COMMENT '图片地址',
+  `summary` varchar(255) default NULL,
   `content` text COMMENT '内容',
-  `column_id` varchar(36) DEFAULT NULL COMMENT '栏目id',
-  `accountid` varchar(100) DEFAULT NULL COMMENT '微信账户',
-  `create_name` varchar(255) DEFAULT NULL COMMENT '创建人',
-  `create_by` varchar(255) DEFAULT NULL COMMENT '创建人id',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  PRIMARY KEY (`id`)
+  `column_id` varchar(36) default NULL COMMENT '栏目id',
+  `accountid` varchar(100) default NULL COMMENT '微信账户',
+  `create_name` varchar(255) default NULL COMMENT '创建人',
+  `create_by` varchar(255) default NULL COMMENT '创建人id',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3302,15 +3302,15 @@ INSERT INTO `weixin_cms_article` VALUES ('402881e8622272aa0162228d5888003e', '�
 DROP TABLE IF EXISTS `weixin_cms_menu`;
 CREATE TABLE `weixin_cms_menu` (
   `ID` varchar(36) NOT NULL,
-  `ACCOUNTID` varchar(100) DEFAULT NULL,
-  `CREATE_BY` varchar(255) DEFAULT NULL,
-  `CREATE_DATE` datetime DEFAULT NULL,
-  `CREATE_NAME` varchar(255) DEFAULT NULL,
-  `IMAGE_HREF` varchar(255) DEFAULT NULL,
-  `IMAGE_NAME` varchar(255) DEFAULT NULL,
-  `NAME` varchar(20) DEFAULT NULL,
-  `TYPE` varchar(20) DEFAULT NULL COMMENT '类型',
-  PRIMARY KEY (`ID`)
+  `ACCOUNTID` varchar(100) default NULL,
+  `CREATE_BY` varchar(255) default NULL,
+  `CREATE_DATE` datetime default NULL,
+  `CREATE_NAME` varchar(255) default NULL,
+  `IMAGE_HREF` varchar(255) default NULL,
+  `IMAGE_NAME` varchar(255) default NULL,
+  `NAME` varchar(20) default NULL,
+  `TYPE` varchar(20) default NULL COMMENT '类型',
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3329,16 +3329,16 @@ INSERT INTO `weixin_cms_menu` VALUES ('402881e8622272aa01622284c6b90024', '40288
 DROP TABLE IF EXISTS `weixin_cms_site`;
 CREATE TABLE `weixin_cms_site` (
   `ID` varchar(36) NOT NULL,
-  `ACCOUNTID` varchar(32) DEFAULT NULL,
-  `COMPANY_TEL` varchar(50) DEFAULT NULL,
-  `CREATE_DATE` datetime DEFAULT NULL,
-  `CREATE_NAME` varchar(50) DEFAULT NULL,
-  `SITE_LOGO` varchar(200) DEFAULT NULL,
-  `SITE_NAME` varchar(100) DEFAULT NULL,
-  `SITE_TEMPLATE_STYLE` varchar(50) DEFAULT NULL,
-  `UPDATE_DATE` datetime DEFAULT NULL,
-  `UPDATE_NAME` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `ACCOUNTID` varchar(32) default NULL,
+  `COMPANY_TEL` varchar(50) default NULL,
+  `CREATE_DATE` datetime default NULL,
+  `CREATE_NAME` varchar(50) default NULL,
+  `SITE_LOGO` varchar(200) default NULL,
+  `SITE_NAME` varchar(100) default NULL,
+  `SITE_TEMPLATE_STYLE` varchar(50) default NULL,
+  `UPDATE_DATE` datetime default NULL,
+  `UPDATE_NAME` varchar(50) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3352,15 +3352,15 @@ INSERT INTO `weixin_cms_site` VALUES ('402881e86223f2de016223f4f33e0005', '40288
 DROP TABLE IF EXISTS `weixin_cms_style`;
 CREATE TABLE `weixin_cms_style` (
   `ID` varchar(36) NOT NULL,
-  `ACCOUNTID` varchar(50) DEFAULT NULL,
-  `CREATE_DATE` datetime DEFAULT NULL,
-  `CREATE_NAME` varchar(50) DEFAULT NULL,
-  `REVIEW_IMG_URL` varchar(100) DEFAULT NULL,
-  `TEMPLATE_NAME` varchar(100) DEFAULT NULL,
-  `TEMPLATE_URL` varchar(200) DEFAULT NULL,
-  `UPDATE_DATE` datetime DEFAULT NULL,
-  `UPDATE_NAME` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `ACCOUNTID` varchar(50) default NULL,
+  `CREATE_DATE` datetime default NULL,
+  `CREATE_NAME` varchar(50) default NULL,
+  `REVIEW_IMG_URL` varchar(100) default NULL,
+  `TEMPLATE_NAME` varchar(100) default NULL,
+  `TEMPLATE_URL` varchar(200) default NULL,
+  `UPDATE_DATE` datetime default NULL,
+  `UPDATE_NAME` varchar(50) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3373,12 +3373,12 @@ CREATE TABLE `weixin_cms_style` (
 DROP TABLE IF EXISTS `weixin_expandconfig`;
 CREATE TABLE `weixin_expandconfig` (
   `ID` varchar(36) NOT NULL,
-  `ACCOUNTID` varchar(200) DEFAULT NULL,
+  `ACCOUNTID` varchar(200) default NULL,
   `CLASSNAME` varchar(100) NOT NULL,
   `CONTENT` longtext,
   `KEYWORD` varchar(100) NOT NULL,
-  `NAME` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `NAME` varchar(100) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3397,13 +3397,13 @@ INSERT INTO `weixin_expandconfig` VALUES ('402881e747baf1ea0147bb79d2330007', '4
 DROP TABLE IF EXISTS `weixin_hdrecord`;
 CREATE TABLE `weixin_hdrecord` (
   `ID` varchar(100) NOT NULL,
-  `ADDTIME` datetime DEFAULT NULL,
-  `HDID` varchar(100) DEFAULT NULL,
-  `NICKNAME` varchar(200) DEFAULT NULL,
-  `OPENDID` varchar(100) DEFAULT NULL,
-  `TOTAL` int(11) DEFAULT NULL,
-  `accountid` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `ADDTIME` datetime default NULL,
+  `HDID` varchar(100) default NULL,
+  `NICKNAME` varchar(200) default NULL,
+  `OPENDID` varchar(100) default NULL,
+  `TOTAL` int(11) default NULL,
+  `accountid` varchar(100) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3419,21 +3419,21 @@ INSERT INTO `weixin_hdrecord` VALUES ('402881865907db74015908295ef70032', '2016-
 DROP TABLE IF EXISTS `weixin_huodong`;
 CREATE TABLE `weixin_huodong` (
   `id` varchar(100) NOT NULL COMMENT '键主',
-  `title` varchar(400) DEFAULT NULL COMMENT '活动名称',
+  `title` varchar(400) default NULL COMMENT '活动名称',
   `description` text COMMENT '活动描述',
-  `priceone` varchar(400) DEFAULT NULL COMMENT '一等奖奖品',
-  `onetotal` int(4) DEFAULT NULL COMMENT '一等奖数量',
-  `pricetwo` varchar(400) DEFAULT NULL COMMENT '二等奖奖品',
-  `twototal` int(4) DEFAULT NULL COMMENT '二等奖数量',
-  `pricethree` varchar(400) DEFAULT NULL COMMENT '三等奖奖品',
-  `threetotal` int(4) DEFAULT NULL COMMENT '三等奖数量',
-  `starttime` timestamp NULL DEFAULT NULL COMMENT '开始时间',
-  `endtime` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '结束时间',
-  `type` varchar(100) DEFAULT NULL COMMENT '活动类型',
-  `gl` varchar(100) DEFAULT NULL,
-  `count` varchar(10) DEFAULT NULL,
-  `accountid` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `priceone` varchar(400) default NULL COMMENT '一等奖奖品',
+  `onetotal` int(4) default NULL COMMENT '一等奖数量',
+  `pricetwo` varchar(400) default NULL COMMENT '二等奖奖品',
+  `twototal` int(4) default NULL COMMENT '二等奖数量',
+  `pricethree` varchar(400) default NULL COMMENT '三等奖奖品',
+  `threetotal` int(4) default NULL COMMENT '三等奖数量',
+  `starttime` timestamp NULL default NULL COMMENT '开始时间',
+  `endtime` timestamp NULL default NULL on update CURRENT_TIMESTAMP COMMENT '结束时间',
+  `type` varchar(100) default NULL COMMENT '活动类型',
+  `gl` varchar(100) default NULL,
+  `count` varchar(10) default NULL,
+  `accountid` varchar(100) default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3448,20 +3448,20 @@ INSERT INTO `weixin_huodong` VALUES ('402881e6469a13b901469a1e9e420001', '微信
 DROP TABLE IF EXISTS `weixin_linksucai`;
 CREATE TABLE `weixin_linksucai` (
   `id` varchar(36) NOT NULL,
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '修改人名称',
-  `update_date` datetime DEFAULT NULL COMMENT '修改日期',
-  `name` varchar(100) DEFAULT NULL COMMENT '链接名称',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '修改人名称',
+  `update_date` datetime default NULL COMMENT '修改日期',
+  `name` varchar(100) default NULL COMMENT '链接名称',
   `outer_link` longtext COMMENT '外部链接',
   `content` longtext COMMENT '功能描述',
   `inner_link` longtext COMMENT '内部链接',
-  `transfer_sign` int(11) DEFAULT NULL COMMENT '转换标志',
-  `accountid` varchar(100) DEFAULT NULL COMMENT '微信账户id',
-  `post_code` varchar(200) DEFAULT NULL COMMENT '账号邮编',
-  `share_status` varchar(10) DEFAULT 'N' COMMENT '分享状态',
-  `is_encrypt` int(2) DEFAULT '0' COMMENT '是否加密（0：不加密，1：加密）',
-  PRIMARY KEY (`id`)
+  `transfer_sign` int(11) default NULL COMMENT '转换标志',
+  `accountid` varchar(100) default NULL COMMENT '微信账户id',
+  `post_code` varchar(200) default NULL COMMENT '账号邮编',
+  `share_status` varchar(10) default 'N' COMMENT '分享状态',
+  `is_encrypt` int(2) default '0' COMMENT '是否加密（0：不加密，1：加密）',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3475,15 +3475,15 @@ INSERT INTO `weixin_linksucai` VALUES ('4028948151d769f20151d76c11e10002', 'admi
 DROP TABLE IF EXISTS `weixin_long2short`;
 CREATE TABLE `weixin_long2short` (
   `id` varchar(36) NOT NULL,
-  `create_name` varchar(50) DEFAULT NULL COMMENT '创建人名称',
-  `create_date` datetime DEFAULT NULL COMMENT '创建日期',
-  `update_name` varchar(50) DEFAULT NULL COMMENT '修改人名称',
-  `update_date` datetime DEFAULT NULL COMMENT '修改日期',
+  `create_name` varchar(50) default NULL COMMENT '创建人名称',
+  `create_date` datetime default NULL COMMENT '创建日期',
+  `update_name` varchar(50) default NULL COMMENT '修改人名称',
+  `update_date` datetime default NULL COMMENT '修改日期',
   `long_url` longtext COMMENT '长链接',
-  `short_url` varchar(255) DEFAULT NULL COMMENT '短链接',
-  `account_id` varchar(50) DEFAULT NULL COMMENT '公众号ID',
-  `wx_name` varchar(32) DEFAULT NULL COMMENT '名称',
-  PRIMARY KEY (`id`)
+  `short_url` varchar(255) default NULL COMMENT '短链接',
+  `account_id` varchar(50) default NULL COMMENT '公众号ID',
+  `wx_name` varchar(32) default NULL COMMENT '名称',
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3491,24 +3491,25 @@ CREATE TABLE `weixin_long2short` (
 -- ----------------------------
 INSERT INTO `weixin_long2short` VALUES ('402881e86223f2de016223fbdc18000c', 'admin', '2018-03-14 18:08:51', 'admin', '2018-03-14 18:08:53', 'http://www.jeewx.com', 'https://w.url.cn/s/AqpptRa', null, 'JEEWX官网');
 
+
 -- ----------------------------
 -- Table structure for weixin_menuentity
 -- ----------------------------
 DROP TABLE IF EXISTS `weixin_menuentity`;
 CREATE TABLE `weixin_menuentity` (
   `ID` varchar(32) NOT NULL,
-  `menukey` varchar(255) DEFAULT NULL,
-  `msgtype` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `orders` varchar(11) DEFAULT NULL,
-  `templateid` varchar(255) DEFAULT NULL,
-  `type` varchar(255) DEFAULT NULL,
-  `url` varchar(2000) DEFAULT NULL,
-  `fatherid` varchar(32) DEFAULT NULL,
-  `accountid` varchar(255) DEFAULT NULL,
-  `appid` varchar(255) DEFAULT NULL COMMENT 'appid',
-  `pagepath` varchar(255) DEFAULT NULL COMMENT 'pagepath',
-  PRIMARY KEY (`ID`),
+  `menukey` varchar(255) default NULL,
+  `msgtype` varchar(255) default NULL,
+  `name` varchar(255) default NULL,
+  `orders` varchar(11) default NULL,
+  `templateid` varchar(255) default NULL,
+  `type` varchar(255) default NULL,
+  `url` varchar(2000) default NULL,
+  `fatherid` varchar(32) default NULL,
+  `accountid` varchar(255) default NULL,
+  `appid` varchar(255) default NULL COMMENT 'appid',
+  `pagepath` varchar(255) default NULL COMMENT 'pagepath',
+  PRIMARY KEY  (`ID`),
   KEY `FK_astulwpsla864at9igbas3eic` (`fatherid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -3537,18 +3538,18 @@ INSERT INTO `weixin_menuentity` VALUES ('40289481515d5e1201515d6009020005', 'jee
 DROP TABLE IF EXISTS `weixin_newsitem`;
 CREATE TABLE `weixin_newsitem` (
   `ID` varchar(32) NOT NULL,
-  `new_type` varchar(255) DEFAULT NULL COMMENT '图文类型：图文还是外部url',
-  `author` varchar(255) DEFAULT NULL,
+  `new_type` varchar(255) default NULL COMMENT '图文类型：图文还是外部url',
+  `author` varchar(255) default NULL,
   `content` text,
-  `description` varchar(255) DEFAULT NULL,
-  `imagepath` varchar(255) DEFAULT NULL,
-  `orders` varchar(255) DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `templateid` varchar(32) DEFAULT NULL,
-  `url` varchar(255) DEFAULT NULL COMMENT '外部URL',
-  `create_date` date DEFAULT NULL,
-  `accountid` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
+  `description` varchar(255) default NULL,
+  `imagepath` varchar(255) default NULL,
+  `orders` varchar(255) default NULL,
+  `title` varchar(255) default NULL,
+  `templateid` varchar(32) default NULL,
+  `url` varchar(255) default NULL COMMENT '外部URL',
+  `create_date` date default NULL,
+  `accountid` varchar(100) default NULL,
+  PRIMARY KEY  (`ID`),
   KEY `FK_m8qs8ufeqkk5cx17budto66r0` (`templateid`),
   CONSTRAINT `FK_m8qs8ufeqkk5cx17budto66r0` FOREIGN KEY (`templateid`) REFERENCES `weixin_newstemplate` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -3566,13 +3567,13 @@ INSERT INTO `weixin_newsitem` VALUES ('4028d881472f356e01472f36d0a00003', null, 
 DROP TABLE IF EXISTS `weixin_newstemplate`;
 CREATE TABLE `weixin_newstemplate` (
   `ID` varchar(32) NOT NULL,
-  `addtime` varchar(255) DEFAULT NULL,
-  `tempatename` varchar(255) DEFAULT NULL,
-  `type` varchar(255) DEFAULT NULL,
-  `accountid` varchar(100) DEFAULT NULL,
-  `mediaid` varchar(100) DEFAULT NULL COMMENT 'mediaid',
-  `isup` varchar(3) DEFAULT NULL COMMENT '是否上传',
-  PRIMARY KEY (`ID`)
+  `addtime` varchar(255) default NULL,
+  `tempatename` varchar(255) default NULL,
+  `type` varchar(255) default NULL,
+  `accountid` varchar(100) default NULL,
+  `mediaid` varchar(100) default NULL COMMENT 'mediaid',
+  `isup` varchar(3) default NULL COMMENT '是否上传',
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3586,10 +3587,10 @@ INSERT INTO `weixin_newstemplate` VALUES ('4028d881472f356e01472f36461b0001', '2
 DROP TABLE IF EXISTS `weixin_open_account`;
 CREATE TABLE `weixin_open_account` (
   `id` varchar(36) NOT NULL COMMENT '主键',
-  `appid` varchar(200) DEFAULT NULL,
-  `ticket` varchar(200) DEFAULT NULL COMMENT '第三方平台推送 : ticket',
-  `get_ticket_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `appid` varchar(200) default NULL,
+  `ticket` varchar(200) default NULL COMMENT '第三方平台推送 : ticket',
+  `get_ticket_time` datetime default NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3602,14 +3603,14 @@ CREATE TABLE `weixin_open_account` (
 DROP TABLE IF EXISTS `weixin_photo`;
 CREATE TABLE `weixin_photo` (
   `ID` varchar(32) NOT NULL,
-  `PHOTO_ALBUM_ID` varchar(32) DEFAULT NULL COMMENT '对应相册',
-  `CONTENT` varchar(255) DEFAULT NULL COMMENT '相片描述',
-  `CREATE_BY` varchar(32) DEFAULT NULL,
-  `CREATE_DATE` datetime DEFAULT NULL,
-  `NAME` varchar(100) DEFAULT NULL COMMENT '相片名字',
-  `UPDATE_BY` varchar(32) DEFAULT NULL,
-  `UPDATE_DATE` datetime DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `PHOTO_ALBUM_ID` varchar(32) default NULL COMMENT '对应相册',
+  `CONTENT` varchar(255) default NULL COMMENT '相片描述',
+  `CREATE_BY` varchar(32) default NULL,
+  `CREATE_DATE` datetime default NULL,
+  `NAME` varchar(100) default NULL COMMENT '相片名字',
+  `UPDATE_BY` varchar(32) default NULL,
+  `UPDATE_DATE` datetime default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3631,15 +3632,15 @@ INSERT INTO `weixin_photo` VALUES ('4028948151dc770f0151dc7e8e8b0009', '40289481
 DROP TABLE IF EXISTS `weixin_photo_album`;
 CREATE TABLE `weixin_photo_album` (
   `ID` varchar(32) NOT NULL,
-  `NAME` varchar(100) DEFAULT NULL COMMENT '相册名称',
-  `CONTENT` varchar(255) DEFAULT NULL COMMENT '相册描述',
-  `ACCOUNTID` varchar(100) DEFAULT NULL,
-  `CREATE_DATE` datetime DEFAULT NULL COMMENT '创建时间',
-  `CREATE_BY` varchar(32) DEFAULT NULL COMMENT '创建人',
-  `UPDATE_DATE` datetime DEFAULT NULL COMMENT '修改时间',
-  `UPDATE_BY` varchar(32) DEFAULT NULL COMMENT '修改人',
-  `PHOTO_ID` varchar(32) DEFAULT NULL COMMENT '封面相片',
-  PRIMARY KEY (`ID`)
+  `NAME` varchar(100) default NULL COMMENT '相册名称',
+  `CONTENT` varchar(255) default NULL COMMENT '相册描述',
+  `ACCOUNTID` varchar(100) default NULL,
+  `CREATE_DATE` datetime default NULL COMMENT '创建时间',
+  `CREATE_BY` varchar(32) default NULL COMMENT '创建人',
+  `UPDATE_DATE` datetime default NULL COMMENT '修改时间',
+  `UPDATE_BY` varchar(32) default NULL COMMENT '修改人',
+  `PHOTO_ID` varchar(32) default NULL COMMENT '封面相片',
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3654,13 +3655,13 @@ INSERT INTO `weixin_photo_album` VALUES ('4028948151dc770f0151dc7d6f0f0001', '�
 DROP TABLE IF EXISTS `weixin_prizerecord`;
 CREATE TABLE `weixin_prizerecord` (
   `ID` varchar(100) NOT NULL,
-  `ADDTIME` datetime DEFAULT NULL,
-  `HDID` varchar(100) DEFAULT NULL,
-  `MOBILE` varchar(100) DEFAULT NULL,
-  `openid` varchar(255) DEFAULT NULL,
-  `PRIZE` varchar(100) DEFAULT NULL,
-  `accountid` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `ADDTIME` datetime default NULL,
+  `HDID` varchar(100) default NULL,
+  `MOBILE` varchar(100) default NULL,
+  `openid` varchar(255) default NULL,
+  `PRIZE` varchar(100) default NULL,
+  `accountid` varchar(100) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3674,17 +3675,17 @@ INSERT INTO `weixin_prizerecord` VALUES ('402881865907db740159082a0e690033', '20
 DROP TABLE IF EXISTS `weixin_receivetext`;
 CREATE TABLE `weixin_receivetext` (
   `ID` varchar(32) NOT NULL,
-  `content` varchar(255) DEFAULT NULL,
-  `createtime` datetime DEFAULT NULL,
-  `fromusername` varchar(255) DEFAULT NULL,
-  `msgid` varchar(255) DEFAULT NULL,
-  `msgtype` varchar(255) DEFAULT NULL,
-  `rescontent` varchar(255) DEFAULT NULL,
-  `response` varchar(255) DEFAULT NULL,
-  `tousername` varchar(255) DEFAULT NULL,
-  `accountid` varchar(100) DEFAULT NULL,
-  `nickname` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `content` varchar(255) default NULL,
+  `createtime` datetime default NULL,
+  `fromusername` varchar(255) default NULL,
+  `msgid` varchar(255) default NULL,
+  `msgtype` varchar(255) default NULL,
+  `rescontent` varchar(255) default NULL,
+  `response` varchar(255) default NULL,
+  `tousername` varchar(255) default NULL,
+  `accountid` varchar(100) default NULL,
+  `nickname` varchar(200) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3702,14 +3703,14 @@ INSERT INTO `weixin_receivetext` VALUES ('402881e86223f2de016223fd02410010', '�
 -- ----------------------------
 DROP TABLE IF EXISTS `weixin_subscribe`;
 CREATE TABLE `weixin_subscribe` (
-  `ID` varchar(32) CHARACTER SET utf8 NOT NULL,
-  `accountid` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `addTime` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `msgType` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `templateId` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `templateName` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `ID` varchar(32) NOT NULL,
+  `accountid` varchar(255) default NULL,
+  `addTime` varchar(255) default NULL,
+  `msgType` varchar(255) default NULL,
+  `templateId` varchar(255) default NULL,
+  `templateName` varchar(255) default NULL,
+  PRIMARY KEY  (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of weixin_subscribe
@@ -3722,11 +3723,11 @@ INSERT INTO `weixin_subscribe` VALUES ('402889ff472978290147297b54350004', '4028
 DROP TABLE IF EXISTS `weixin_texttemplate`;
 CREATE TABLE `weixin_texttemplate` (
   `ID` varchar(32) NOT NULL,
-  `addtime` varchar(255) DEFAULT NULL,
-  `content` varchar(255) DEFAULT NULL,
-  `templatename` varchar(255) DEFAULT NULL,
-  `accountid` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`ID`)
+  `addtime` varchar(255) default NULL,
+  `content` varchar(255) default NULL,
+  `templatename` varchar(255) default NULL,
+  `accountid` varchar(100) default NULL,
+  PRIMARY KEY  (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
@@ -3740,3 +3741,33 @@ INSERT INTO `weixin_texttemplate` VALUES ('f7a8a3a946e55a940146e5a53e6b0051', '2
 INSERT INTO `weixin_texttemplate` VALUES ('f7a8a3a946e55a940146e5a584da0052', '2014-06-29 11:22:48', '请输入\"刮刮乐\"，参与抽奖活动', '刮刮乐指南', '402881e8461795c201461795c2e90000');
 INSERT INTO `weixin_texttemplate` VALUES ('f7a8a3a946e55a940146e5c317f6005f', '2014-06-29 11:55:06', '官方网站：www.jeewx.com\r\n商务购买联系QQ: 418799587', '联系我们', '402881e8461795c201461795c2e90000');
 INSERT INTO `weixin_texttemplate` VALUES ('f7a8a3a946e55a940146e5cfa5660070', '2014-06-29 12:08:49', '01  翻译\r\n02  天气\r\n03  大转盘\r\n04  刮刮乐', '营销工具', '402881e8461795c201461795c2e90000');
+
+
+
+
+-- update-begin-Author:taoYan  Date:20180319 for：添加菜单图标样式
+ALTER TABLE `t_s_function`
+ADD COLUMN `function_icon_style`  varchar(255) NULL AFTER `desk_iconid`;
+UPDATE `t_s_function` SET `function_icon_style`='fa-paypal' WHERE (`ID`='402880f25906117601590614ca94000a');
+UPDATE `t_s_function` SET `function_icon_style`='fa-gears' WHERE (`ID`='402880f2590623420159062581630001');
+UPDATE `t_s_function` SET `function_icon_style`='fa-newspaper-o' WHERE (`ID`='402880f25906234201590626596e0004');
+UPDATE `t_s_function` SET `function_icon_style`='fa-user' WHERE (`ID`='402880f2590623420159062692fc0006');
+UPDATE `t_s_function` SET `function_icon_style`='fa-commenting-o' WHERE (`ID`='402880f25906234201590626c28e0008');
+UPDATE `t_s_function` SET `function_icon_style`='fa-graduation-cap' WHERE (`ID`='40288186590896200159089c30620004');
+UPDATE `t_s_function` SET `function_icon_style`='fa-sitemap' WHERE (`ID`='402881e44695183a0146951af2b70004');
+UPDATE `t_s_function` SET `function_icon_style`='fa-newspaper-o' WHERE (`ID`='402881e545f5dd1a0145f5de9bb60001');
+UPDATE `t_s_function` SET `function_icon_style`='fa-cloud' WHERE (`ID`='4028d881436d514601436d5215070018');
+UPDATE `t_s_function` SET `function_icon_style`='fa-home' WHERE (`ID`='4028d881436d514601436d52150a0019');
+UPDATE `t_s_function` SET `function_icon_style`='fa-bar-chart-o' WHERE (`ID`='4028d881436d514601436d52150b001a');
+UPDATE `t_s_function` SET `function_icon_style`='fa-twitch' WHERE (`ID`='4028d881436d514601436d52150d001b');
+UPDATE `t_s_function` SET `function_icon_style`='fa-headphones' WHERE (`ID`='4028d881436d514601436d52150f001c');
+UPDATE `t_s_function` SET `function_icon_style`='fa-gears' WHERE (`ID`='4028d881436d514601436d52c2fb0181');
+UPDATE `t_s_function` SET `function_icon_style`='fa-trophy' WHERE (`ID`='4028d881436d514601436d5449330189');
+UPDATE `t_s_function` SET `function_icon_style`='fa-cubes' WHERE (`ID`='4028ef8156b07fa50156b082a1100005');
+UPDATE `t_s_function` SET `function_icon_style`='fa-weixin' WHERE (`ID`='4028ef8156b0c68f0156b0c88eb10001');
+UPDATE `t_s_function` SET `function_icon_style`='fa-user-plus' WHERE (`ID`='4028ef8156b0c68f0156b0c8c0c60003');
+UPDATE `t_s_function` SET `function_icon_style`='fa-gears' WHERE (`ID`='4028ef8156b0c68f0156b0ca47730011');
+UPDATE `t_s_function` SET `function_icon_style`='fa-newspaper-o' WHERE (`ID`='4028ef8156b0c68f0156b0ca69760013');
+UPDATE `t_s_function` SET `function_icon_style`='fa-commenting-o' WHERE (`ID`='4028ef8156b0c68f0156b0ca9d800015');
+UPDATE `t_s_function` SET `function_icon_style`='fa-weixin' WHERE (`ID`='4028ef8156b0c68f0156b0d4cf390045');
+-- update-end-Author:taoYan  Date:20180319 for：添加菜单图标样式
